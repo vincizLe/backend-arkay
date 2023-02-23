@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { IsArray, IsNotEmpty, IsString } from 'class-validator'
+import { UnitDto } from './unit.dto'
 
-export class StatementTemplateDto {
+export class StatementTemplateDto extends UnitDto {
 	@IsNotEmpty()
 	@IsString()
 	@ApiProperty()
@@ -18,6 +19,8 @@ export class StatementTemplateDto {
 	alternativeAnswers = new Array<string>()
 
 	constructor(entity: StatementTemplateDto) {
+		super()
+
 		Object.assign(this, entity)
 	}
 }

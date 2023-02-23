@@ -1,6 +1,6 @@
+import { UnitEnum } from '../../../../core/enums/unit.enum'
 import { Assessment } from '../entities/assessment.entity'
 import { Unit } from '../entities/unit.entity'
-import { UnitEnum } from '../enums/unit.enum'
 import { UnitRepository } from '../repositories/unit.repository'
 
 export class CreateUnitUseCase {
@@ -17,7 +17,7 @@ export class CreateUnitUseCase {
 
 		UnitEnum.toArray().forEach(unitEnum => {
 			const unit = Unit.create({
-				name: unitEnum[0],
+				name: undefined,
 				sessions: undefined,
 				assessment: undefined,
 				practices: undefined,

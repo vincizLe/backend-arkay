@@ -1,5 +1,5 @@
 import { Session } from 'inspector'
-import { UnitEnum } from '../enums/unit.enum'
+import { UnitEnum } from '../../../../core/enums/unit.enum'
 import { Assessment } from './assessment.entity'
 import { Practice } from './practice.entity'
 

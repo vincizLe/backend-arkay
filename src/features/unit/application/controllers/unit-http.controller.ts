@@ -14,11 +14,13 @@ export class UnitHttpController {
 	@Get('/:unitId/session/:sessionId')
 	@ApiOkResponse({ type: SessionDetailDto, description: 'Session' })
 	async getSessionDetail(@Param('unitId') unitId: string, @Param('sessionId') sessionId: string): Promise<SessionDetailDto> {
-		return await this.unitService.getSessionDetail(unitId, sessionId)
+		return
+		//await this.unitService.getSessionDetail(unitId, sessionId)
 	}
 
 	@Post('/:unitId/session')
 	async createManySessions(@Body() createManySessionsDto: CreateManySessionsDto): Promise<void> {
-		return await this.unitService.createManySessions(createManySessionsDto)
+		return
+		// await this.unitService.createManySessions(createManySessionsDto)
 	}
 }

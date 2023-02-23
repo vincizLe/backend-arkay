@@ -1,7 +1,9 @@
+import { TestData } from './test-data.entity'
+
 export class PracticeTemplate {
 	statement: string
 	algorithm: string
-	testData = new Array<[string, string]>()
+	testData = new Array<TestData>()
 
 	static create(params: PracticeTemplate.CreateParams): PracticeTemplate {
 		const practiceTemplate = new PracticeTemplate()

@@ -1,13 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
-import { IsArray, IsBoolean, IsEnum, IsNotEmpty, IsString, ValidateNested } from 'class-validator'
-import { SessionEnum } from '../../domain/enums/session.enum'
+import { IsArray, IsBoolean, IsNotEmpty, IsString, ValidateNested } from 'class-validator'
 
 export class SessionDto {
-	@IsNotEmpty()
-	@IsEnum(SessionEnum)
-	@ApiProperty({ type: String, enum: SessionEnum.toArray() })
-	name: SessionEnum
+	// @IsNotEmpty()
+	// @IsEnum(SessionEnum)
+	// @ApiProperty({ type: String, enum: SessionEnum.toArray() })
+	// name: SessionEnum
 
 	@IsNotEmpty()
 	@IsString()

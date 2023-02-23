@@ -5,6 +5,6 @@ export class GetSessionDetailUseCase {
 	constructor(private readonly unitRepository: UnitRepository) {}
 
 	async execute(unitId: string, sessionId: string): Promise<Session> {
-		return await this.unitRepository.getSessionDetail(unitId, sessionId)
+		return // await this.unitRepository.getSessionDetail(unitId, sessionId)
 	}
 }
