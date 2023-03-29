@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateService = void 0;
 const common_1 = require("@nestjs/common");
-const request_logger_service_1 = require("../../../request-logger/request-logger.service");
 const practice_template_entity_1 = require("../../domain/entities/practice-template.entity");
 const session_template_entity_1 = require("../../domain/entities/session-template.entity");
 const statement_template_entity_1 = require("../../domain/entities/statement-template.entity");
@@ -22,8 +21,7 @@ const update_session_template_use_case_1 = require("../../domain/use-cases/updat
 const update_statement_template_use_case_1 = require("../../domain/use-cases/update-statement-template.use-case");
 const template_to_template_dto_1 = require("../mappers/template-to-template-dto");
 let TemplateService = class TemplateService {
-    constructor(requestLogger, templateRepository) {
-        this.requestLogger = requestLogger;
+    constructor(templateRepository) {
         this.templateRepository = templateRepository;
     }
     async updateSessionTemplate({ sessionName, videoUrl, unit }) {
@@ -50,14 +48,13 @@ let TemplateService = class TemplateService {
         }));
     }
     async getTemplate(unit) {
-        console.log('inside TemplateService.getTemplate()');
         const useCase = new get_one_template_use_case_1.GetOneTemplateUseCase(this.templateRepository);
         return (0, template_to_template_dto_1.templateToTemplateDto)(await useCase.execute(unit));
     }
 };
 TemplateService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [request_logger_service_1.RequestLogger, template_repository_1.TemplateRepository])
+    __metadata("design:paramtypes", [template_repository_1.TemplateRepository])
 ], TemplateService);
 exports.TemplateService = TemplateService;
 //# sourceMappingURL=template.service.js.map

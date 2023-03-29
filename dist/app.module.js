@@ -9,13 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const database_module_1 = require("./features/database/database.module");
-const request_logger_module_1 = require("./features/request-logger/request-logger.module");
 const template_module_1 = require("./features/template/template.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [template_module_1.TemplateModule, database_module_1.DatabaseModule, request_logger_module_1.RequestLoggerModule]
+        imports: [template_module_1.TemplateModule, database_module_1.DatabaseModule]
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { UnitEnum } from 'src/core/enums/unit.enum'
-import { RequestLogger } from '../../../request-logger/request-logger.service'
 import { PracticeTemplate } from '../../domain/entities/practice-template.entity'
 import { SessionTemplate } from '../../domain/entities/session-template.entity'
 import { StatementTemplate } from '../../domain/entities/statement-template.entity'
@@ -17,7 +16,7 @@ import { templateToTemplateDto } from '../mappers/template-to-template-dto'
 
 @Injectable()
 export class TemplateService {
-	constructor(private readonly requestLogger: RequestLogger, private readonly templateRepository: TemplateRepository) {}
+	constructor(private readonly templateRepository: TemplateRepository) {}
 
 	async updateSessionTemplate({ sessionName, videoUrl, unit }: SessionTemplateDto): Promise<void> {
 		const useCase = new UpdateSessionTemplateUseCase(this.templateRepository)

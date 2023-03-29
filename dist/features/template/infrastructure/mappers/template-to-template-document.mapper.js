@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.templateToTemplateDocumentMapper = void 0;
 function templateToTemplateDocumentMapper(template) {
-    console.log('template -> ', template);
     return {
         unit: template.unit,
         sessionTemplate: template.sessionTemplate != null || template.sessionTemplate != undefined

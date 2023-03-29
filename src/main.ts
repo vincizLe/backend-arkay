@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
 
 async function bootstrap() {
-	const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter())
+	const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), { bufferLogs: true })
 
 	const config = new DocumentBuilder().setTitle('Backend-Arkay').build()
 	const document = SwaggerModule.createDocument(app, config)

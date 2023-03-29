@@ -7,7 +7,6 @@ const statement_template_entity_1 = require("../../domain/entities/statement-tem
 const template_entity_1 = require("../../domain/entities/template.entity");
 const test_data_entity_1 = require("../../domain/entities/test-data.entity");
 function templateDocumentToTemplate(templateDocument) {
-    console.log(templateDocument);
     return template_entity_1.Template.create({
         unit: templateDocument.unit,
         sessionTemplate: templateDocument.sessionTemplate != null || templateDocument.sessionTemplate != undefined
