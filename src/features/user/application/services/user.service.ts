@@ -2,6 +2,7 @@ import { Injectable, Scope } from '@nestjs/common'
 import { User } from '../../domain/entities/user.entity'
 import { UserRepository } from '../../domain/repositories/user.repository'
 import { GetDetailUseCase } from '../../domain/use-cases/get-detail.use-case'
+import { GetUserIdUseCase } from '../../domain/use-cases/get-user-id.use-case'
 import { SaveUseCase } from '../../domain/use-cases/save.use-case'
 import { CreateDto } from '../dto/create.dto'
 import { UserDto } from '../dto/user.dto'
@@ -44,6 +45,12 @@ export class UserService {
 		const user = await useCase.execute(userId)
 
 		return userToUserDto(user)
+	}
+
+	async getUserId(email: string, password: string): Promise<string> {
+		const useCase = new GetUserIdUseCase(this.userRepository)
+
+		return await useCase.execute(email, password)
 	}
 
 	async delete(userId: string): Promise<void> {

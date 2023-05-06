@@ -35,6 +35,15 @@ let UserImplRepository = class UserImplRepository {
             throw new common_1.NotFoundException(`No se ha encontrado el usuario con el id: ${userId} `);
         }
     }
+    async getByEmailAndPassword(email, password) {
+        const userDocument = await this.collection.findOne({ email, password });
+        if (userDocument != null && userDocument != undefined) {
+            return (0, user_document_to_user_mapper_1.userDocumentToUser)(userDocument);
+        }
+        else {
+            throw new common_1.NotFoundException(`No se ha encontrado el usuario con los valores ingresados `);
+        }
+    }
     async deleteById(userId) {
         await this.collection.deleteOne({ _id: mongodb_1.ObjectId.createFromHexString(userId) });
     }

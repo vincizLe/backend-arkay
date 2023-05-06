@@ -4,7 +4,7 @@ exports.userToUserDocument = void 0;
 const mongodb_1 = require("mongodb");
 function userToUserDocument(user) {
     return {
-        _id: user.id != null || user.id != undefined ? new mongodb_1.ObjectId() : mongodb_1.ObjectId.createFromHexString(user.id),
+        _id: user.id == null || user.id == undefined ? new mongodb_1.ObjectId() : mongodb_1.ObjectId.createFromHexString(user.id),
         email: user.email,
         password: user.password,
         name: user.name,

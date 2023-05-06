@@ -16,6 +16,7 @@ exports.UserHttpController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const create_dto_1 = require("../dto/create.dto");
+const get_user_id_dto_1 = require("../dto/get-user-id.dto");
 const user_id_dto_1 = require("../dto/user-id.dto");
 const user_dto_1 = require("../dto/user.dto");
 const user_service_1 = require("../services/user.service");
@@ -31,6 +32,9 @@ let UserHttpController = class UserHttpController {
     }
     async detail({ id }) {
         return await this.userService.detail(id);
+    }
+    async getUserId({ email, password }) {
+        return await this.userService.getUserId(email, password);
     }
     async delete({ id }) {
         await this.userService.delete(id);
@@ -60,6 +64,15 @@ __decorate([
     __metadata("design:paramtypes", [user_id_dto_1.UserIdDto]),
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "detail", null);
+__decorate([
+    (0, common_1.Get)('/get-user-id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener usuario por correo y constraseña' }),
+    (0, swagger_1.ApiResponse)({ description: 'Hola' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [get_user_id_dto_1.GetUserIdDto]),
+    __metadata("design:returntype", Promise)
+], UserHttpController.prototype, "getUserId", null);
 __decorate([
     (0, common_1.Delete)('/:id'),
     (0, swagger_1.ApiOperation)({ summary: 'Eliminar usuario por id' }),

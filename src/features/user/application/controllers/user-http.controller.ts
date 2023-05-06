@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
 import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { CreateDto } from '../dto/create.dto'
+import { GetUserIdDto } from '../dto/get-user-id.dto'
 import { UserIdDto } from '../dto/user-id.dto'
 import { UserDto } from '../dto/user.dto'
 import { UserService } from '../services/user.service'
@@ -26,6 +27,12 @@ export class UserHttpController {
 	@ApiOperation({ summary: 'Obtener usuario por id' })
 	async detail(@Param() { id }: UserIdDto): Promise<UserDto> {
 		return await this.userService.detail(id)
+	}
+
+	@Get('/get-user-id')
+	@ApiOperation({ summary: 'Obtener id del usuario por correo y constraseña' })
+	async getUserId(@Query() { email, password }: GetUserIdDto): Promise<string> {
+		return await this.userService.getUserId(email, password)
 	}
 
 	@Delete('/:id')

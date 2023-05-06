@@ -7,5 +7,6 @@ export declare class UserService {
     create(createDto: CreateDto): Promise<void>;
     update(userDto: UserDto): Promise<void>;
     detail(userId: string): Promise<UserDto>;
+    getUserId(email: string, password: string): Promise<string>;
     delete(userId: string): Promise<void>;
 }

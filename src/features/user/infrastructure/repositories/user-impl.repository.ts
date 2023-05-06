@@ -32,6 +32,17 @@ export class UserImplRepository implements UserRepository {
 			throw new NotFoundException(`No se ha encontrado el usuario con el id: ${userId} `)
 		}
 	}
+
+	async getByEmailAndPassword(email: string, password: string): Promise<User> {
+		const userDocument = await this.collection.findOne({ email, password })
+
+		if (userDocument != null && userDocument != undefined) {
+			return userDocumentToUser(userDocument)
+		} else {
+			throw new NotFoundException(`No se ha encontrado el usuario con los valores ingresados `)
+		}
+	}
+
 	async deleteById(userId: string): Promise<void> {
 		await this.collection.deleteOne({ _id: ObjectId.createFromHexString(userId) })
 	}

@@ -7,5 +7,6 @@ export declare class UserImplRepository implements UserRepository {
     constructor(db: Db);
     save(user: User): Promise<void>;
     getById(userId: string): Promise<User>;
+    getByEmailAndPassword(email: string, password: string): Promise<User>;
     deleteById(userId: string): Promise<void>;
 }

@@ -14,6 +14,7 @@ const common_1 = require("@nestjs/common");
 const user_entity_1 = require("../../domain/entities/user.entity");
 const user_repository_1 = require("../../domain/repositories/user.repository");
 const get_detail_use_case_1 = require("../../domain/use-cases/get-detail.use-case");
+const get_user_id_use_case_1 = require("../../domain/use-cases/get-user-id.use-case");
 const save_use_case_1 = require("../../domain/use-cases/save.use-case");
 const user_to_user_dto_mapper_1 = require("../mappers/user-to-user-dto.mapper");
 let UserService = class UserService {
@@ -43,6 +44,10 @@ let UserService = class UserService {
         const useCase = new get_detail_use_case_1.GetDetailUseCase(this.userRepository);
         const user = await useCase.execute(userId);
         return (0, user_to_user_dto_mapper_1.userToUserDto)(user);
+    }
+    async getUserId(email, password) {
+        const useCase = new get_user_id_use_case_1.GetUserIdUseCase(this.userRepository);
+        return await useCase.execute(email, password);
     }
     async delete(userId) {
         const useCase = new get_detail_use_case_1.GetDetailUseCase(this.userRepository);
