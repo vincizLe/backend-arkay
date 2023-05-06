@@ -66,8 +66,7 @@ __decorate([
 ], UserHttpController.prototype, "detail", null);
 __decorate([
     (0, common_1.Get)('/get-user-id'),
-    (0, swagger_1.ApiOperation)({ summary: 'Obtener usuario por correo y constraseña' }),
-    (0, swagger_1.ApiResponse)({ description: 'Hola' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener id del usuario por correo y constraseña' }),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [get_user_id_dto_1.GetUserIdDto]),
