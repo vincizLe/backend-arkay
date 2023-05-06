@@ -15,7 +15,8 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [database_module_1.DatabaseModule, template_module_1.TemplateModule, user_module_1.UserModule]
+        imports: [database_module_1.DatabaseModule, template_module_1.TemplateModule, user_module_1.UserModule],
+        providers: [common_1.Logger]
     })
 ], AppModule);
 exports.AppModule = AppModule;
