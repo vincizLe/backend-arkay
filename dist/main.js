@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const platform_fastify_1 = require("@nestjs/platform-fastify");
 const swagger_1 = require("@nestjs/swagger");
@@ -11,10 +10,7 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);
     const port = 3000;
-    await app.listen(port, () => {
-        const logger = app.get(common_1.Logger);
-        logger.log(`Application is listening on port ${port}.`);
-    });
+    await app.listen(port, '0.0.0.0');
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

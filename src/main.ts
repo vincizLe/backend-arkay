@@ -1,4 +1,3 @@
-import { Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
@@ -13,10 +12,7 @@ async function bootstrap() {
 
 	const port = 3000
 
-	await app.listen(port, () => {
-		const logger = app.get(Logger)
-		logger.log(`Application is listening on port ${port}.`)
-	})
+	await app.listen(port, '0.0.0.0')
 }
 
 bootstrap()
