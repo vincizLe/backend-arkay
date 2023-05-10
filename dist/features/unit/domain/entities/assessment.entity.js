@@ -11,7 +11,8 @@ class Assessment {
             assessment.id = params.id;
         assessment.statements = params.statements;
         assessment.isCompleted = params.isCompleted;
-        assessment.score = params.score;
+        if (params.score != null && params.score != undefined)
+            assessment.score = params.score;
         return assessment;
     }
 }

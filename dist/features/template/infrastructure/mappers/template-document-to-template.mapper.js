@@ -27,14 +27,13 @@ function templateDocumentToTemplate(templateDocument) {
                 })
             })
             : null,
-        statementTemplate: templateDocument.statementTemplate != null || templateDocument.statementTemplate != undefined
-            ? statement_template_entity_1.StatementTemplate.create({
-                question: templateDocument.statementTemplate.question,
-                answer: templateDocument.statementTemplate.answer,
-                alternativeAnswers: templateDocument.statementTemplate
-                    .alternativeAnswers
-            })
-            : null
+        statementsTemplate: templateDocument.statementsTemplate.map(statementTemplate => {
+            return statement_template_entity_1.StatementTemplate.create({
+                question: statementTemplate.question,
+                answer: statementTemplate.answer,
+                alternativeAnswers: statementTemplate.alternativeAnswers
+            });
+        })
     });
 }
 exports.templateDocumentToTemplate = templateDocumentToTemplate;

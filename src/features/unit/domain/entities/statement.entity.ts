@@ -1,10 +1,10 @@
 export class Statement {
-	id: string
+	id?: string
 	question: string
 	answer: string
-	alternativeAnswers = new Array<[string, string]>()
+	alternativeAnswers = new Array<string>()
 	isCompleted: boolean
-	score: number
+	score?: number
 
 	static create(params: Statement.CreateParams): Statement {
 		const statement = new Statement()
@@ -15,12 +15,12 @@ export class Statement {
 		statement.answer = params.answer
 		statement.alternativeAnswers = params.alternativeAnswers
 		statement.isCompleted = params.isCompleted
-		statement.score = params.score
+		if (params.score != null && params.score != undefined) statement.score = params.score
 
 		return statement
 	}
 }
 
 export namespace Statement {
-	export type CreateParams = Pick<Statement, 'id' | 'question' | 'answer' | 'alternativeAnswers' | 'isCompleted' | 'score'>
+	export type CreateParams = Partial<Pick<Statement, 'id' | 'score'>> & Pick<Statement, 'question' | 'answer' | 'alternativeAnswers' | 'isCompleted'>
 }

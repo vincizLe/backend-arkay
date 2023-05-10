@@ -15,14 +15,13 @@ function templateToTemplateDto(template) {
                 videoUrl: template.sessionTemplate.videoUrl
             })
             : null,
-        statementTemplate: template.statementTemplate != null || template.statementTemplate != undefined
-            ? new statement_template_dto_1.StatementTemplateDto({
-                question: template.statementTemplate.question,
-                answer: template.statementTemplate.answer,
-                alternativeAnswers: template.statementTemplate
-                    .alternativeAnswers
-            })
-            : null,
+        statementsTemplate: template.statementsTemplate.map(statementTemplate => {
+            return new statement_template_dto_1.StatementTemplateDto({
+                question: statementTemplate.question,
+                answer: statementTemplate.answer,
+                alternativeAnswers: statementTemplate.alternativeAnswers
+            });
+        }),
         practiceTemplate: template.practiceTemplate != null || template.practiceTemplate != undefined
             ? new practice_template_dto_1.PracticeTemplateDto({
                 statement: template.practiceTemplate.statement,

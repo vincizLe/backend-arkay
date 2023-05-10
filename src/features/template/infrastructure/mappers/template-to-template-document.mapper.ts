@@ -26,14 +26,12 @@ export function templateToTemplateDocumentMapper(template: Template): TemplateDo
 						)
 				  }
 				: null,
-		statementTemplate:
-			template.statementTemplate != null || template.statementTemplate != undefined
-				? {
-						question: template.statementTemplate.question,
-						answer: template.statementTemplate.answer,
-						alternativeAnswers: template.statementTemplate
-							.alternativeAnswers
-				  }
-				: null
+		statementsTemplate: template.statementsTemplate.map(statementTemplate => {
+			return {
+				question: statementTemplate.question,
+				answer: statementTemplate.answer,
+				alternativeAnswers: statementTemplate.alternativeAnswers
+			}
+		})
 	}
 }

@@ -5,7 +5,7 @@ class Template {
     constructor() {
         this.practiceTemplate = null;
         this.sessionTemplate = null;
-        this.statementTemplate = null;
+        this.statementsTemplate = new Array();
     }
     static create(params) {
         const template = new Template();
@@ -14,8 +14,7 @@ class Template {
             template.practiceTemplate = params.practiceTemplate;
         if (params.sessionTemplate != null || params.sessionTemplate != undefined)
             template.sessionTemplate = params.sessionTemplate;
-        if (params.statementTemplate != null || params.statementTemplate != undefined)
-            template.statementTemplate = params.statementTemplate;
+        template.statementsTemplate = params.statementsTemplate;
         return template;
     }
 }

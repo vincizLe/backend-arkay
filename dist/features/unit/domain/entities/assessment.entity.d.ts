@@ -3,7 +3,7 @@ export declare class Assessment {
     id?: string;
     statements: Statement[];
     isCompleted: boolean;
-    score: number;
+    score?: number;
     static create(params: Assessment.CreateParams): Assessment;
 }
 export declare namespace Assessment {

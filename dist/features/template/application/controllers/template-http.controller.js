@@ -27,8 +27,8 @@ let TemplateHttpController = class TemplateHttpController {
     async updateSessionTemplate(sessionTemplateDto) {
         return await this.templateService.updateSessionTemplate(sessionTemplateDto);
     }
-    async updateStatementTemplate(statementTemplateDto) {
-        return await this.templateService.updateStatementTemplate(statementTemplateDto);
+    async updateStatementTemplate(statementsTemplateDto) {
+        return await this.templateService.updateStatementsTemplate(statementsTemplateDto);
     }
     async updatePracticeTemplate(practiceTemplateDto) {
         return await this.templateService.updatePracticeTemplate(practiceTemplateDto);
@@ -47,10 +47,10 @@ __decorate([
 ], TemplateHttpController.prototype, "updateSessionTemplate", null);
 __decorate([
     (0, common_1.Put)('/statement'),
-    (0, swagger_1.ApiOperation)({ summary: 'Actualizar la evaluación de la plantilla' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar las evaluaciones de la plantilla' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [statement_template_dto_1.StatementTemplateDto]),
+    __metadata("design:paramtypes", [statement_template_dto_1.StatementsTemplateDto]),
     __metadata("design:returntype", Promise)
 ], TemplateHttpController.prototype, "updateStatementTemplate", null);
 __decorate([

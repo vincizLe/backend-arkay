@@ -6,16 +6,16 @@ class UpdateStatementTemplateUseCase {
     constructor(templateRepository) {
         this.templateRepository = templateRepository;
     }
-    async execute(unit, statementTemplate) {
+    async execute(unit, statementsTemplate) {
         try {
             const template = await this.templateRepository.getOne(unit);
-            template.statementTemplate = statementTemplate;
+            template.statementsTemplate = statementsTemplate;
             this.templateRepository.save(template);
         }
         catch (error) {
             this.templateRepository.save(template_entity_1.Template.create({
-                unit: unit,
-                statementTemplate: statementTemplate
+                unit,
+                statementsTemplate
             }));
         }
     }

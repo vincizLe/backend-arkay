@@ -1,5 +1,7 @@
+import { Assessment } from '../entities/assessment.entity';
 import { Unit } from '../entities/unit.entity';
 export declare abstract class UnitRepository {
-    abstract saveMany(units: Array<Unit>): Promise<void>;
-    abstract getOne(userId: string): Promise<Unit>;
+    abstract saveUnit(unit: Unit): Promise<void>;
+    abstract getUnitById(unitId: string): Promise<Unit>;
+    abstract getAssessmentByUnitId(unitId: string): Promise<Assessment>;
 }

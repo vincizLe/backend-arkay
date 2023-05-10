@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
-import { IsEnum, IsNotEmpty, IsObject, IsOptional, ValidateNested } from 'class-validator'
+import { IsArray, IsEnum, IsNotEmpty, IsObject, IsOptional, ValidateNested } from 'class-validator'
 import { UnitEnum } from '../../../../core/enums/unit.enum'
 import { StatementTemplate } from '../../domain/entities/statement-template.entity'
 import { PracticeTemplateDto } from './practice-template.dto'
@@ -27,11 +27,11 @@ export class TemplateDto {
 	sessionTemplate?: SessionTemplateDto
 
 	@IsOptional()
-	@IsObject()
-	@ApiProperty({ type: PracticeTemplateDto })
+	@IsArray()
+	@ApiProperty({ type: PracticeTemplateDto, isArray: true })
 	@Type(() => PracticeTemplateDto)
 	@ValidateNested()
-	statementTemplate?: StatementTemplate
+	statementsTemplate?: Array<StatementTemplate>
 
 	constructor(entity: TemplateDto) {
 		Object.assign(this, entity)

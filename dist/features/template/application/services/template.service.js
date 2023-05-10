@@ -13,7 +13,6 @@ exports.TemplateService = void 0;
 const common_1 = require("@nestjs/common");
 const practice_template_entity_1 = require("../../domain/entities/practice-template.entity");
 const session_template_entity_1 = require("../../domain/entities/session-template.entity");
-const statement_template_entity_1 = require("../../domain/entities/statement-template.entity");
 const template_repository_1 = require("../../domain/repositories/template.repository");
 const get_one_template_use_case_1 = require("../../domain/use-cases/get-one-template.use-case");
 const update_practice_template_use_case_1 = require("../../domain/use-cases/update-practice-template.use-case");
@@ -31,13 +30,9 @@ let TemplateService = class TemplateService {
             videoUrl
         }));
     }
-    async updateStatementTemplate({ question, answer, alternativeAnswers, unit }) {
+    async updateStatementsTemplate({ unit, statements }) {
         const useCase = new update_statement_template_use_case_1.UpdateStatementTemplateUseCase(this.templateRepository);
-        await useCase.execute(unit, statement_template_entity_1.StatementTemplate.create({
-            question,
-            answer,
-            alternativeAnswers
-        }));
+        await useCase.execute(unit, statements);
     }
     async updatePracticeTemplate({ statement, testData, algorithm, unit }) {
         const useCase = new update_practice_template_use_case_1.UpdatePracticeTemplateUseCase(this.templateRepository);

@@ -15,15 +15,13 @@ export function templateToTemplateDto(template: Template): TemplateDto {
 						videoUrl: template.sessionTemplate.videoUrl
 				  })
 				: null,
-		statementTemplate:
-			template.statementTemplate != null || template.statementTemplate != undefined
-				? new StatementTemplateDto({
-						question: template.statementTemplate.question,
-						answer: template.statementTemplate.answer,
-						alternativeAnswers: template.statementTemplate
-							.alternativeAnswers
-				  })
-				: null,
+		statementsTemplate: template.statementsTemplate.map(statementTemplate => {
+			return new StatementTemplateDto({
+				question: statementTemplate.question,
+				answer: statementTemplate.answer,
+				alternativeAnswers: statementTemplate.alternativeAnswers
+			})
+		}),
 		practiceTemplate:
 			template.practiceTemplate != null || template.practiceTemplate != undefined
 				? new PracticeTemplateDto({

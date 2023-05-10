@@ -6,6 +6,6 @@ export declare class TemplateDto {
     unit?: UnitEnum;
     practiceTemplate?: PracticeTemplateDto;
     sessionTemplate?: SessionTemplateDto;
-    statementTemplate?: StatementTemplate;
+    statementsTemplate?: Array<StatementTemplate>;
     constructor(entity: TemplateDto);
 }

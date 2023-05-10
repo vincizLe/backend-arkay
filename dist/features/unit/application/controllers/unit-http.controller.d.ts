@@ -1,9 +1,10 @@
-import { CreateManySessionsDto } from '../dto/create-many-sessions.dto';
-import { SessionDetailDto } from '../dto/session-detail.dto';
+import { UserIdDto } from 'src/features/user/application/dto/user-id.dto';
+import { AssessmentDetailDto } from '../dto/assessment-detail.dto';
+import { UnitIdDto } from '../dto/unit-id.dto';
 import { UnitService } from '../services/unit.service';
 export declare class UnitHttpController {
     private readonly unitService;
     constructor(unitService: UnitService);
-    getSessionDetail(unitId: string, sessionId: string): Promise<SessionDetailDto>;
-    createManySessions(createManySessionsDto: CreateManySessionsDto): Promise<void>;
+    createUnit({ id }: UserIdDto): Promise<void>;
+    getAssessment({ unitId }: UnitIdDto): Promise<AssessmentDetailDto>;
 }
