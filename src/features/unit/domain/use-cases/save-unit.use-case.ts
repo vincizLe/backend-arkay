@@ -29,7 +29,7 @@ export class SaveUnitUseCase {
 				userId
 			})
 
-			return await this.unitRepository.saveUnit(unit)
+			return await this.unitRepository.save(unit)
 		}
 	}
 }

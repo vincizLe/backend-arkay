@@ -25,9 +25,6 @@ export class StatementDto {
 }
 
 export class AssessmentDetailDto {
-	@ApiProperty()
-	id: string
-
 	@ApiProperty({ type: StatementDto, isArray: true })
 	statements = new Array<StatementDto>()
 

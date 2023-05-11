@@ -7,8 +7,6 @@ class Assessment {
     }
     static create(params) {
         const assessment = new Assessment();
-        if (params.id != null && params.id != undefined)
-            assessment.id = params.id;
         assessment.statements = params.statements;
         assessment.isCompleted = params.isCompleted;
         if (params.score != null && params.score != undefined)

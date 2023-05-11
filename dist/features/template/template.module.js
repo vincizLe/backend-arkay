@@ -15,7 +15,8 @@ let TemplateModule = class TemplateModule {
 TemplateModule = __decorate([
     (0, common_1.Module)({
         providers: [template_provider_1.templateServiceProvider, template_provider_1.templateRepositoryProvider],
-        controllers: [template_http_controller_1.TemplateHttpController]
+        controllers: [template_http_controller_1.TemplateHttpController],
+        exports: [template_provider_1.templateRepositoryProvider]
     })
 ], TemplateModule);
 exports.TemplateModule = TemplateModule;

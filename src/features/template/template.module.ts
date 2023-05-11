@@ -4,6 +4,7 @@ import { templateRepositoryProvider, templateServiceProvider } from './template.
 
 @Module({
 	providers: [templateServiceProvider, templateRepositoryProvider],
-	controllers: [TemplateHttpController]
+	controllers: [TemplateHttpController],
+	exports: [templateRepositoryProvider]
 })
 export class TemplateModule {}
