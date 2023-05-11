@@ -1,4 +1,4 @@
-import { TemplateRepository } from 'src/features/template/domain/repositories/template.repository';
+import { TemplateRepository } from '../../../template/domain/repositories/template.repository';
 import { UnitRepository } from '../../domain/repositories/unit.repository';
 import { AssessmentDetailDto } from '../dto/assessment-detail.dto';
 export declare class UnitService {

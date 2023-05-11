@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { TemplateRepository } from 'src/features/template/domain/repositories/template.repository'
+import { TemplateRepository } from '../../../template/domain/repositories/template.repository'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
 import { GetAssessmentUseCase } from '../../domain/use-cases/get-assessment.use-case'
 import { SaveUnitUseCase } from '../../domain/use-cases/save-unit.use-case'

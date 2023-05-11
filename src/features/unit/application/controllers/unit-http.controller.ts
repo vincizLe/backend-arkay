@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common'
 import { Body, Get, Param, Post } from '@nestjs/common/decorators'
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
-import { UserIdDto } from 'src/features/user/application/dto/user-id.dto'
+import { UserIdDto } from '../../../user/application/dto/user-id.dto'
 import { AssessmentDetailDto } from '../dto/assessment-detail.dto'
 import { UnitIdDto } from '../dto/unit-id.dto'
 import { UnitService } from '../services/unit.service'

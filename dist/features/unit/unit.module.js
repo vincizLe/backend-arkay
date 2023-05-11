@@ -9,10 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnitModule = void 0;
 const common_1 = require("@nestjs/common");
 const unit_http_controller_1 = require("./application/controllers/unit-http.controller");
+const unit_service_1 = require("./application/services/unit.service");
 let UnitModule = class UnitModule {
 };
 UnitModule = __decorate([
     (0, common_1.Module)({
+        providers: [unit_service_1.UnitService],
         controllers: [unit_http_controller_1.UnitHttpController]
     })
 ], UnitModule);

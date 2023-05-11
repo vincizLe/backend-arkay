@@ -1,4 +1,4 @@
-import { UserIdDto } from 'src/features/user/application/dto/user-id.dto';
+import { UserIdDto } from '../../../user/application/dto/user-id.dto';
 import { AssessmentDetailDto } from '../dto/assessment-detail.dto';
 import { UnitIdDto } from '../dto/unit-id.dto';
 import { UnitService } from '../services/unit.service';
