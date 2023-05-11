@@ -13,7 +13,8 @@ class Statement {
         statement.answer = params.answer;
         statement.alternativeAnswers = params.alternativeAnswers;
         statement.isCompleted = params.isCompleted;
-        statement.score = params.score;
+        if (params.score != null && params.score != undefined)
+            statement.score = params.score;
         return statement;
     }
 }

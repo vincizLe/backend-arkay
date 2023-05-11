@@ -1,12 +1,8 @@
-// export const sessionRepositoryProvider: Provider<SessionRepository> = {
-// 	provide: SessionRepository,
-// 	useClass: SessionImplRepository
-// }
+import { Provider } from '@nestjs/common'
+import { UnitRepository } from './domain/repositories/unit.repository'
+import { UnitImplRepository } from './infrastructure/repositories/unit-impl.repository'
 
-// export const unitServiceProvider: Provider<UnitService> = {
-// 	provide: UnitService,
-// 	inject: [SessionRepository],
-// 	useFactory: (sessionRepository: SessionRepository) => {
-// 		return new UnitService(sessionRepository)
-// 	}
-// }
+export const unitRepositoryProvider: Provider<UnitRepository> = {
+	provide: UnitRepository,
+	useClass: UnitImplRepository
+}

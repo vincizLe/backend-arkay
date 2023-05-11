@@ -14,7 +14,6 @@ const swagger_1 = require("@nestjs/swagger");
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const unit_enum_1 = require("../../../../core/enums/unit.enum");
-const statement_template_entity_1 = require("../../domain/entities/statement-template.entity");
 const practice_template_dto_1 = require("./practice-template.dto");
 const session_template_dto_1 = require("./session-template.dto");
 class TemplateDto {
@@ -46,11 +45,11 @@ __decorate([
 ], TemplateDto.prototype, "sessionTemplate", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsObject)(),
-    (0, swagger_1.ApiProperty)({ type: practice_template_dto_1.PracticeTemplateDto }),
+    (0, class_validator_1.IsArray)(),
+    (0, swagger_1.ApiProperty)({ type: practice_template_dto_1.PracticeTemplateDto, isArray: true }),
     (0, class_transformer_1.Type)(() => practice_template_dto_1.PracticeTemplateDto),
     (0, class_validator_1.ValidateNested)(),
-    __metadata("design:type", statement_template_entity_1.StatementTemplate)
-], TemplateDto.prototype, "statementTemplate", void 0);
+    __metadata("design:type", Array)
+], TemplateDto.prototype, "statementsTemplate", void 0);
 exports.TemplateDto = TemplateDto;
 //# sourceMappingURL=template.dto.js.map

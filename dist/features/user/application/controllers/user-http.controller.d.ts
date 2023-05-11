@@ -8,7 +8,7 @@ export declare class UserHttpController {
     constructor(userService: UserService);
     create(createDto: CreateDto): Promise<void>;
     update(userDto: UserDto): Promise<void>;
-    detail({ id }: UserIdDto): Promise<UserDto>;
+    detail({ userId }: UserIdDto): Promise<UserDto>;
     getUserId({ email, password }: GetUserIdDto): Promise<string>;
-    delete({ id }: UserIdDto): Promise<void>;
+    delete({ userId }: UserIdDto): Promise<void>;
 }

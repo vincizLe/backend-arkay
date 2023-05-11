@@ -1,5 +1,8 @@
+import { UnitEnum } from 'src/core/enums/unit.enum';
+import { Assessment } from '../entities/assessment.entity';
 import { Unit } from '../entities/unit.entity';
 export declare abstract class UnitRepository {
-    abstract saveMany(units: Array<Unit>): Promise<void>;
-    abstract getOne(userId: string): Promise<Unit>;
+    abstract save(unit: Unit): Promise<void>;
+    abstract getById(unitId: string): Promise<Unit>;
+    abstract getAssessment(unit: UnitEnum, userId: string): Promise<Assessment>;
 }

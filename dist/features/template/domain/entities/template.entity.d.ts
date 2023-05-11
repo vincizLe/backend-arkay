@@ -6,9 +6,9 @@ export declare class Template {
     unit: UnitEnum;
     practiceTemplate?: PracticeTemplate;
     sessionTemplate?: SessionTemplate;
-    statementTemplate?: StatementTemplate;
+    statementsTemplate: StatementTemplate[];
     static create(params: Template.CreateParams): Template;
 }
 export declare namespace Template {
-    type CreateParams = Partial<Pick<Template, 'practiceTemplate' | 'sessionTemplate' | 'statementTemplate'>> & Pick<Template, 'unit'>;
+    type CreateParams = Partial<Pick<Template, 'practiceTemplate' | 'sessionTemplate' | 'statementsTemplate'>> & Pick<Template, 'unit'>;
 }

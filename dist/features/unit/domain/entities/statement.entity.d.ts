@@ -1,12 +1,12 @@
 export declare class Statement {
-    id: string;
+    id?: string;
     question: string;
     answer: string;
-    alternativeAnswers: [string, string][];
+    alternativeAnswers: string[];
     isCompleted: boolean;
-    score: number;
+    score?: number;
     static create(params: Statement.CreateParams): Statement;
 }
 export declare namespace Statement {
-    type CreateParams = Pick<Statement, 'id' | 'question' | 'answer' | 'alternativeAnswers' | 'isCompleted' | 'score'>;
+    type CreateParams = Partial<Pick<Statement, 'id' | 'score'>> & Pick<Statement, 'question' | 'answer' | 'alternativeAnswers' | 'isCompleted'>;
 }

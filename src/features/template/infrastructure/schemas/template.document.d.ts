@@ -6,5 +6,5 @@ export interface TemplateDocument {
 	unit: string
 	practiceTemplate?: PracticeTemplateDocument
 	sessionTemplate?: SessionTemplateDocument
-	statementTemplate?: StatementTemplateDocument
+	statementsTemplate: Array<StatementTemplateDocument>
 }

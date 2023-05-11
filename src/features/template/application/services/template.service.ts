@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common'
 import { UnitEnum } from 'src/core/enums/unit.enum'
 import { PracticeTemplate } from '../../domain/entities/practice-template.entity'
 import { SessionTemplate } from '../../domain/entities/session-template.entity'
-import { StatementTemplate } from '../../domain/entities/statement-template.entity'
 import { TemplateRepository } from '../../domain/repositories/template.repository'
 import { GetOneTemplateUseCase } from '../../domain/use-cases/get-one-template.use-case'
 import { UpdatePracticeTemplateUseCase } from '../../domain/use-cases/update-practice-template.use-case'
@@ -10,7 +9,7 @@ import { UpdateSessionTemplateUseCase } from '../../domain/use-cases/update-sess
 import { UpdateStatementTemplateUseCase } from '../../domain/use-cases/update-statement-template.use-case'
 import { PracticeTemplateDto } from '../dto/practice-template.dto'
 import { SessionTemplateDto } from '../dto/session-template.dto'
-import { StatementTemplateDto } from '../dto/statement-template.dto'
+import { StatementsTemplateDto } from '../dto/statement-template.dto'
 import { TemplateDto } from '../dto/template.dto'
 import { templateToTemplateDto } from '../mappers/template-to-template-dto'
 
@@ -29,16 +28,9 @@ export class TemplateService {
 		)
 	}
 
-	async updateStatementTemplate({ question, answer, alternativeAnswers, unit }: StatementTemplateDto): Promise<void> {
+	async updateStatementsTemplate({ unit, statements }: StatementsTemplateDto): Promise<void> {
 		const useCase = new UpdateStatementTemplateUseCase(this.templateRepository)
-		await useCase.execute(
-			unit,
-			StatementTemplate.create({
-				question,
-				answer,
-				alternativeAnswers
-			})
-		)
+		await useCase.execute(unit, statements)
 	}
 
 	async updatePracticeTemplate({ statement, testData, algorithm, unit }: PracticeTemplateDto): Promise<void> {

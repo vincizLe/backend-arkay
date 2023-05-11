@@ -2,7 +2,7 @@ import { Body, Controller, Get, Put, Query } from '@nestjs/common'
 import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { PracticeTemplateDto } from '../dto/practice-template.dto'
 import { SessionTemplateDto } from '../dto/session-template.dto'
-import { StatementTemplateDto } from '../dto/statement-template.dto'
+import { StatementsTemplateDto } from '../dto/statement-template.dto'
 import { TemplateDto } from '../dto/template.dto'
 import { UnitDto } from '../dto/unit.dto'
 import { TemplateService } from '../services/template.service'
@@ -19,9 +19,9 @@ export class TemplateHttpController {
 	}
 
 	@Put('/statement')
-	@ApiOperation({ summary: 'Actualizar la evaluación de la plantilla' })
-	async updateStatementTemplate(@Body() statementTemplateDto: StatementTemplateDto): Promise<void> {
-		return await this.templateService.updateStatementTemplate(statementTemplateDto)
+	@ApiOperation({ summary: 'Actualizar las evaluaciones de la plantilla' })
+	async updateStatementTemplate(@Body() statementsTemplateDto: StatementsTemplateDto): Promise<void> {
+		return await this.templateService.updateStatementsTemplate(statementsTemplateDto)
 	}
 
 	@Put('/practice')

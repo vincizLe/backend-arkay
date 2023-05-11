@@ -16,39 +16,40 @@ exports.UnitHttpController = void 0;
 const common_1 = require("@nestjs/common");
 const decorators_1 = require("@nestjs/common/decorators");
 const swagger_1 = require("@nestjs/swagger");
-const dist_1 = require("@nestjs/swagger/dist");
-const create_many_sessions_dto_1 = require("../dto/create-many-sessions.dto");
-const session_detail_dto_1 = require("../dto/session-detail.dto");
+const user_id_dto_1 = require("../../../user/application/dto/user-id.dto");
+const assessment_detail_dto_1 = require("../dto/assessment-detail.dto");
+const get_assessment_dto_1 = require("../dto/get-assessment.dto");
 const unit_service_1 = require("../services/unit.service");
 let UnitHttpController = class UnitHttpController {
     constructor(unitService) {
         this.unitService = unitService;
     }
-    async getSessionDetail(unitId, sessionId) {
-        return;
+    async createUnit({ userId }) {
+        return await this.unitService.save(userId);
     }
-    async createManySessions(createManySessionsDto) {
-        return;
+    async getAssessment({ unit, userId }) {
+        return await this.unitService.getAssessment(unit, userId);
     }
 };
 __decorate([
-    (0, common_1.Get)('/:unitId/session/:sessionId'),
-    (0, dist_1.ApiOkResponse)({ type: session_detail_dto_1.SessionDetailDto, description: 'Session' }),
-    __param(0, (0, decorators_1.Param)('unitId')),
-    __param(1, (0, decorators_1.Param)('sessionId')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
-    __metadata("design:returntype", Promise)
-], UnitHttpController.prototype, "getSessionDetail", null);
-__decorate([
-    (0, decorators_1.Post)('/:unitId/session'),
+    (0, decorators_1.Post)(''),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear unidad' }),
     __param(0, (0, decorators_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_many_sessions_dto_1.CreateManySessionsDto]),
+    __metadata("design:paramtypes", [user_id_dto_1.UserIdDto]),
     __metadata("design:returntype", Promise)
-], UnitHttpController.prototype, "createManySessions", null);
+], UnitHttpController.prototype, "createUnit", null);
+__decorate([
+    (0, decorators_1.Get)(':unitId/assessment'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener evaluación' }),
+    (0, swagger_1.ApiOkResponse)({ type: assessment_detail_dto_1.AssessmentDetailDto, description: 'Evaluación' }),
+    __param(0, (0, decorators_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [get_assessment_dto_1.GetAssessmentDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "getAssessment", null);
 UnitHttpController = __decorate([
-    (0, swagger_1.ApiTags)('Session'),
+    (0, swagger_1.ApiTags)('Unit'),
     (0, common_1.Controller)({ path: 'unit' }),
     __metadata("design:paramtypes", [unit_service_1.UnitService])
 ], UnitHttpController);

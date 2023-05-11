@@ -9,13 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementTemplateDto = void 0;
+exports.StatementsTemplateDto = exports.StatementTemplateDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const unit_dto_1 = require("./unit.dto");
-class StatementTemplateDto extends unit_dto_1.UnitDto {
+class StatementTemplateDto {
     constructor(entity) {
-        super();
         this.alternativeAnswers = new Array();
         Object.assign(this, entity);
     }
@@ -39,4 +39,20 @@ __decorate([
     __metadata("design:type", Object)
 ], StatementTemplateDto.prototype, "alternativeAnswers", void 0);
 exports.StatementTemplateDto = StatementTemplateDto;
+class StatementsTemplateDto extends unit_dto_1.UnitDto {
+    constructor(entity) {
+        super();
+        this.statements = new Array();
+        Object.assign(this, entity);
+    }
+}
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsArray)(),
+    (0, swagger_1.ApiProperty)({ type: StatementTemplateDto, isArray: true }),
+    (0, class_transformer_1.Type)(() => StatementTemplateDto),
+    (0, class_validator_1.ValidateNested)(),
+    __metadata("design:type", Object)
+], StatementsTemplateDto.prototype, "statements", void 0);
+exports.StatementsTemplateDto = StatementsTemplateDto;
 //# sourceMappingURL=statement-template.dto.js.map

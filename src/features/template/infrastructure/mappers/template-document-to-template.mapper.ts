@@ -33,14 +33,12 @@ export function templateDocumentToTemplate(templateDocument: TemplateDocument): 
 						)
 				  })
 				: null,
-		statementTemplate:
-			templateDocument.statementTemplate != null || templateDocument.statementTemplate != undefined
-				? StatementTemplate.create({
-						question: templateDocument.statementTemplate.question,
-						answer: templateDocument.statementTemplate.answer,
-						alternativeAnswers: templateDocument.statementTemplate
-							.alternativeAnswers
-				  })
-				: null
+		statementsTemplate: templateDocument.statementsTemplate.map(statementTemplate => {
+			return StatementTemplate.create({
+				question: statementTemplate.question,
+				answer: statementTemplate.answer,
+				alternativeAnswers: statementTemplate.alternativeAnswers
+			})
+		})
 	})
 }

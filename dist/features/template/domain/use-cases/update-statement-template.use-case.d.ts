@@ -4,5 +4,5 @@ import { TemplateRepository } from '../repositories/template.repository';
 export declare class UpdateStatementTemplateUseCase {
     private readonly templateRepository;
     constructor(templateRepository: TemplateRepository);
-    execute(unit: UnitEnum, statementTemplate: StatementTemplate): Promise<void>;
+    execute(unit: UnitEnum, statementsTemplate: Array<StatementTemplate>): Promise<void>;
 }
