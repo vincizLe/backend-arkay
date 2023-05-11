@@ -19,6 +19,6 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], UserIdDto.prototype, "id", void 0);
+], UserIdDto.prototype, "userId", void 0);
 exports.UserIdDto = UserIdDto;
 //# sourceMappingURL=user-id.dto.js.map

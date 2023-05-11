@@ -25,9 +25,9 @@ let UnitService = class UnitService {
         const useCase = new save_unit_use_case_1.SaveUnitUseCase(this.unitRepository, this.templateRepository);
         await useCase.execute(userId);
     }
-    async getAssessment(unitId) {
+    async getAssessment(unit, userId) {
         const useCase = new get_assessment_use_case_1.GetAssessmentUseCase(this.unitRepository);
-        return (0, assessment_to_assessment_detail_dto_1.assessmentToAssessmentDetailDto)(await useCase.execute(unitId));
+        return (0, assessment_to_assessment_detail_dto_1.assessmentToAssessmentDetailDto)(await useCase.execute(unit, userId));
     }
 };
 UnitService = __decorate([

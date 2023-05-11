@@ -30,14 +30,14 @@ let UserHttpController = class UserHttpController {
     async update(userDto) {
         await this.userService.update(userDto);
     }
-    async detail({ id }) {
-        return await this.userService.detail(id);
+    async detail({ userId }) {
+        return await this.userService.detail(userId);
     }
     async getUserId({ email, password }) {
         return await this.userService.getUserId(email, password);
     }
-    async delete({ id }) {
-        await this.userService.delete(id);
+    async delete({ userId }) {
+        await this.userService.delete(userId);
     }
 };
 __decorate([

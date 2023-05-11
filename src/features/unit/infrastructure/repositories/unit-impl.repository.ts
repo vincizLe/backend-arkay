@@ -1,5 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 import { Collection, Db, ObjectId } from 'mongodb'
+import { UnitEnum } from 'src/core/enums/unit.enum'
 import { Assessment } from '../../domain/entities/assessment.entity'
 import { Unit } from '../../domain/entities/unit.entity'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
@@ -36,8 +37,8 @@ export class UnitImplRepository implements UnitRepository {
 		}
 	}
 
-	async getAssessmentByUnitId(unitId: string): Promise<Assessment> {
-		const unitDocument = await this.collection.findOne({ _id: new ObjectId(unitId) })
+	async getAssessment(unit: UnitEnum, userId: string): Promise<Assessment> {
+		const unitDocument = await this.collection.findOne({ name: unit, userId })
 
 		return assessmentDocumentToAssessmentMapper(unitDocument.assessment)
 	}

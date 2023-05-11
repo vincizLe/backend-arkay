@@ -18,17 +18,17 @@ const decorators_1 = require("@nestjs/common/decorators");
 const swagger_1 = require("@nestjs/swagger");
 const user_id_dto_1 = require("../../../user/application/dto/user-id.dto");
 const assessment_detail_dto_1 = require("../dto/assessment-detail.dto");
-const unit_id_dto_1 = require("../dto/unit-id.dto");
+const get_assessment_dto_1 = require("../dto/get-assessment.dto");
 const unit_service_1 = require("../services/unit.service");
 let UnitHttpController = class UnitHttpController {
     constructor(unitService) {
         this.unitService = unitService;
     }
-    async createUnit({ id }) {
-        return await this.unitService.save(id);
+    async createUnit({ userId }) {
+        return await this.unitService.save(userId);
     }
-    async getAssessment({ unitId }) {
-        return await this.unitService.getAssessment(unitId);
+    async getAssessment({ unit, userId }) {
+        return await this.unitService.getAssessment(unit, userId);
     }
 };
 __decorate([
@@ -43,13 +43,13 @@ __decorate([
     (0, decorators_1.Get)(':unitId/assessment'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener evaluación' }),
     (0, swagger_1.ApiOkResponse)({ type: assessment_detail_dto_1.AssessmentDetailDto, description: 'Evaluación' }),
-    __param(0, (0, decorators_1.Param)('unitId')),
+    __param(0, (0, decorators_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [unit_id_dto_1.UnitIdDto]),
+    __metadata("design:paramtypes", [get_assessment_dto_1.GetAssessmentDto]),
     __metadata("design:returntype", Promise)
 ], UnitHttpController.prototype, "getAssessment", null);
 UnitHttpController = __decorate([
-    (0, swagger_1.ApiTags)('Session'),
+    (0, swagger_1.ApiTags)('Unit'),
     (0, common_1.Controller)({ path: 'unit' }),
     __metadata("design:paramtypes", [unit_service_1.UnitService])
 ], UnitHttpController);

@@ -25,8 +25,8 @@ export class UserHttpController {
 
 	@Get('/:id')
 	@ApiOperation({ summary: 'Obtener usuario por id' })
-	async detail(@Param() { id }: UserIdDto): Promise<UserDto> {
-		return await this.userService.detail(id)
+	async detail(@Param() { userId }: UserIdDto): Promise<UserDto> {
+		return await this.userService.detail(userId)
 	}
 
 	@Get('/get-user-id')
@@ -37,7 +37,7 @@ export class UserHttpController {
 
 	@Delete('/:id')
 	@ApiOperation({ summary: 'Eliminar usuario por id' })
-	async delete(@Param() { id }: UserIdDto): Promise<void> {
-		await this.userService.delete(id)
+	async delete(@Param() { userId }: UserIdDto): Promise<void> {
+		await this.userService.delete(userId)
 	}
 }

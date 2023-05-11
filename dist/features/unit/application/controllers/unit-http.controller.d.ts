@@ -1,10 +1,10 @@
 import { UserIdDto } from '../../../user/application/dto/user-id.dto';
 import { AssessmentDetailDto } from '../dto/assessment-detail.dto';
-import { UnitIdDto } from '../dto/unit-id.dto';
+import { GetAssessmentDto } from '../dto/get-assessment.dto';
 import { UnitService } from '../services/unit.service';
 export declare class UnitHttpController {
     private readonly unitService;
     constructor(unitService: UnitService);
-    createUnit({ id }: UserIdDto): Promise<void>;
-    getAssessment({ unitId }: UnitIdDto): Promise<AssessmentDetailDto>;
+    createUnit({ userId }: UserIdDto): Promise<void>;
+    getAssessment({ unit, userId }: GetAssessmentDto): Promise<AssessmentDetailDto>;
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { UnitEnum } from 'src/core/enums/unit.enum'
 import { TemplateRepository } from '../../../template/domain/repositories/template.repository'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
 import { GetAssessmentUseCase } from '../../domain/use-cases/get-assessment.use-case'
@@ -15,9 +16,9 @@ export class UnitService {
 		await useCase.execute(userId)
 	}
 
-	async getAssessment(unitId: string): Promise<AssessmentDetailDto> {
+	async getAssessment(unit: UnitEnum, userId: string): Promise<AssessmentDetailDto> {
 		const useCase = new GetAssessmentUseCase(this.unitRepository)
 
-		return assessmentToAssessmentDetailDto(await useCase.execute(unitId))
+		return assessmentToAssessmentDetailDto(await useCase.execute(unit, userId))
 	}
 }
