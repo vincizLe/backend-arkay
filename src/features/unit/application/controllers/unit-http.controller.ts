@@ -17,7 +17,7 @@ export class UnitHttpController {
 		return await this.unitService.save(userId)
 	}
 
-	@Get(':unitId/assessment')
+	@Get('/assessment')
 	@ApiOperation({ summary: 'Obtener evaluación' })
 	@ApiOkResponse({ type: AssessmentDetailDto, description: 'Evaluación' })
 	async getAssessment(@Query() { unit, userId }: GetAssessmentDto): Promise<AssessmentDetailDto> {

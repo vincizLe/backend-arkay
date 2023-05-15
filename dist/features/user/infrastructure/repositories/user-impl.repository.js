@@ -27,6 +27,7 @@ let UserImplRepository = class UserImplRepository {
         await this.collection.updateOne({ _id: userDocument._id }, { $set: { ...userDocument, createdAt: new Date(), updatedAt: new Date() } }, { upsert: true });
     }
     async getById(userId) {
+        console.log('UserId -> ', userId);
         const userDocument = await this.collection.findOne({ _id: mongodb_1.ObjectId.createFromHexString(userId) });
         if (userDocument != null && userDocument != undefined) {
             return (0, user_document_to_user_mapper_1.userDocumentToUser)(userDocument);
