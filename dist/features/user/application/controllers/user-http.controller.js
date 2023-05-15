@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "update", null);
 __decorate([
-    (0, common_1.Get)('/:id'),
+    (0, common_1.Get)('/:userId'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener usuario por id' }),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
@@ -73,7 +73,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "getUserId", null);
 __decorate([
-    (0, common_1.Delete)('/:id'),
+    (0, common_1.Delete)('/:userId'),
     (0, swagger_1.ApiOperation)({ summary: 'Eliminar usuario por id' }),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),

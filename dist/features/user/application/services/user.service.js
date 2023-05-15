@@ -41,6 +41,7 @@ let UserService = class UserService {
         }));
     }
     async detail(userId) {
+        console.log('userId ->   ra', userId);
         const useCase = new get_detail_use_case_1.GetDetailUseCase(this.userRepository);
         const user = await useCase.execute(userId);
         return (0, user_to_user_dto_mapper_1.userToUserDto)(user);

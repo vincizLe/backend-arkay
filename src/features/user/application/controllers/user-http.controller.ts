@@ -23,7 +23,7 @@ export class UserHttpController {
 		await this.userService.update(userDto)
 	}
 
-	@Get('/:id')
+	@Get('/:userId')
 	@ApiOperation({ summary: 'Obtener usuario por id' })
 	async detail(@Param() { userId }: UserIdDto): Promise<UserDto> {
 		return await this.userService.detail(userId)
@@ -35,7 +35,7 @@ export class UserHttpController {
 		return await this.userService.getUserId(email, password)
 	}
 
-	@Delete('/:id')
+	@Delete('/:userId')
 	@ApiOperation({ summary: 'Eliminar usuario por id' })
 	async delete(@Param() { userId }: UserIdDto): Promise<void> {
 		await this.userService.delete(userId)
