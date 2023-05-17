@@ -12,6 +12,18 @@ class SaveUseCase {
             currentUser.password = user.password;
             currentUser.name = user.name;
             currentUser.lastname = user.lastname;
+            if (user.imageUrl != null || user.imageUrl != undefined) {
+                currentUser.imageUrl = user.imageUrl;
+            }
+            if (user.generalScore != null || user.generalScore != undefined) {
+                currentUser.generalScore = user.generalScore;
+            }
+            if (user.coins != null || user.coins != undefined) {
+                currentUser.coins = user.coins;
+            }
+            if (user.hasReminder == true) {
+                currentUser.reminderDate = user.reminderDate;
+            }
             user = currentUser;
         }
         await this.userRepository.save(user);

@@ -7,6 +7,11 @@ export function userDocumentToUser(userDocument: UserDocument): User {
 		email: userDocument.email,
 		password: userDocument.password,
 		name: userDocument.name,
-		lastname: userDocument.lastname
+		lastname: userDocument.lastname,
+		imageUrl: userDocument?.imageUrl ?? null,
+		generalScore: userDocument?.generalScore ?? null,
+		coins: userDocument?.coins ?? null,
+		hasReminder: userDocument.hasReminder,
+		reminderDate: userDocument?.reminderDate ?? null
 	})
 }

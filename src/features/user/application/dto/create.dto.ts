@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger'
-import { IsNotEmpty, IsString } from 'class-validator'
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
+import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
 
 export class CreateDto {
 	@IsNotEmpty()
@@ -21,4 +21,29 @@ export class CreateDto {
 	@IsString()
 	@ApiProperty()
 	lastname: string
+
+	@IsOptional()
+	@IsString()
+	@ApiPropertyOptional()
+	imageUrl?: string = null
+
+	@IsOptional()
+	@IsNumber()
+	@ApiPropertyOptional()
+	generalScore?: number = 0
+
+	@IsOptional()
+	@IsNumber()
+	@ApiPropertyOptional()
+	coins?: number = 0
+
+	@IsOptional()
+	@IsBoolean()
+	@ApiPropertyOptional()
+	hasReminder?: boolean = false
+
+	@IsOptional()
+	@IsDate()
+	@ApiPropertyOptional()
+	reminderDate?: Date = null
 }

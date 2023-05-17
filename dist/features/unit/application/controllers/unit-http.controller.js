@@ -40,7 +40,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UnitHttpController.prototype, "createUnit", null);
 __decorate([
-    (0, decorators_1.Get)(':unitId/assessment'),
+    (0, decorators_1.Get)('/assessment'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener evaluación' }),
     (0, swagger_1.ApiOkResponse)({ type: assessment_detail_dto_1.AssessmentDetailDto, description: 'Evaluación' }),
     __param(0, (0, decorators_1.Query)()),
