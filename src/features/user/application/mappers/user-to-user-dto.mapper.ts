@@ -7,6 +7,12 @@ export function userToUserDto(user: User): UserDto {
 		email: user.email,
 		password: user.password,
 		name: user.name,
-		lastname: user.lastname
+		lastname: user.lastname,
+		imageUrl: user?.imageUrl ?? null,
+		generalScore: user?.generalScore ?? null,
+		coins: user?.coins ?? null,
+		hasReminder: user.hasReminder,
+		reminderDate: user?.reminderDate ?? null,
+		purchasedItems: user.purchasedItems
 	})
 }

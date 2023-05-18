@@ -3,15 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Practice = void 0;
 class Practice {
     constructor() {
-        this.testData = Array();
+        this.score = 0;
     }
     static create(params) {
         const practice = new Practice();
         if (params.id != null && params.id != undefined)
             practice.id = params.id;
-        practice.statement = params.statement;
-        practice.testData = params.testData;
         practice.isCompleted = params.isCompleted;
+        if (params.score != null && params.score != undefined)
+            practice.score = params.score;
         return practice;
     }
 }

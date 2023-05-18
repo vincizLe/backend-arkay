@@ -1,8 +1,8 @@
 import { Assessment } from '../../domain/entities/assessment.entity'
-import { AssessmentDetailDto, StatementDto } from '../dto/assessment-detail.dto'
+import { AssessmentDto, StatementDto } from '../dto/assessment.dto'
 
-export function assessmentToAssessmentDetailDto(assessment: Assessment): AssessmentDetailDto {
-	return new AssessmentDetailDto({
+export function assessmentToAssessmentDto(assessment: Assessment): AssessmentDto {
+	return new AssessmentDto({
 		statements: assessment.statements.map(({ id, question, answer, alternativeAnswers, isCompleted, score }) => {
 			return new StatementDto({
 				id,

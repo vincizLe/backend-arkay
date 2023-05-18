@@ -27,7 +27,13 @@ let UserService = class UserService {
             email: createDto.email,
             password: createDto.password,
             name: createDto.name,
-            lastname: createDto.lastname
+            lastname: createDto.lastname,
+            imageUrl: createDto.imageUrl,
+            generalScore: createDto.generalScore,
+            coins: createDto.coins,
+            hasReminder: createDto.hasReminder,
+            reminderDate: createDto.reminderDate,
+            purchasedItems: createDto.purchasedItems
         }));
     }
     async update(userDto) {
@@ -37,11 +43,16 @@ let UserService = class UserService {
             email: userDto.email,
             password: userDto.password,
             name: userDto.name,
-            lastname: userDto.lastname
+            lastname: userDto.lastname,
+            imageUrl: userDto.imageUrl,
+            generalScore: userDto.generalScore,
+            coins: userDto.coins,
+            hasReminder: userDto.hasReminder,
+            reminderDate: userDto.reminderDate,
+            purchasedItems: userDto.purchasedItems
         }));
     }
     async detail(userId) {
-        console.log('userId ->   ra', userId);
         const useCase = new get_detail_use_case_1.GetDetailUseCase(this.userRepository);
         const user = await useCase.execute(userId);
         return (0, user_to_user_dto_mapper_1.userToUserDto)(user);
