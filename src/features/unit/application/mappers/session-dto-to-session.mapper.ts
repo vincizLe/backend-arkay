@@ -5,7 +5,7 @@ export function sessionDtoToSession(sessionDto: SessionDto): Session {
 	return Session.create({
 		id: sessionDto.id,
 		name: sessionDto.name,
-		videoUrl: sessionDto.videoUrl,
+		videoUrl: sessionDto?.videoUrl ?? null,
 		isCompleted: sessionDto.isCompleted,
 		score: sessionDto?.score ?? 0
 	})
