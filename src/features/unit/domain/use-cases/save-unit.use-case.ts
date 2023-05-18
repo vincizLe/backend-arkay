@@ -14,6 +14,7 @@ export class SaveUnitUseCase {
 		for (const unitEnum of UnitEnum.toArray()) {
 			const template = await this.templateRepository.getOne(unitEnum)
 
+			console.log('template -> ', template)
 			const unit = Unit.create({
 				name: unitEnum,
 				session: Session.create({

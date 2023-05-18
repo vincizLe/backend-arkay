@@ -8,6 +8,7 @@ export class GetSessionUseCase {
 	async execute(unitName: UnitEnum, userId: string): Promise<Session> {
 		const unit = await this.unitRepository.getOne(unitName, userId)
 
+		console.log('unit -> ', unit)
 		return unit.session
 	}
 }

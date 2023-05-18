@@ -28,6 +28,8 @@ export class UnitImplRepository implements UnitRepository {
 	async getOne(unitName: UnitEnum, userId: string): Promise<Unit> {
 		const unitDocument = await this.collection.findOne({ name: unitName, userId })
 
+		console.log('unitDocument -> ', unitDocument)
+
 		if (unitDocument != null && unitDocument != undefined) {
 			return unitDocumentToUnitMapper(unitDocument)
 		} else {
