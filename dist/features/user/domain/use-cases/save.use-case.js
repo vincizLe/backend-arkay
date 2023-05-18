@@ -24,6 +24,7 @@ class SaveUseCase {
             if (user.hasReminder == true) {
                 currentUser.reminderDate = user.reminderDate;
             }
+            currentUser.purchasedItems = user.purchasedItems;
             user = currentUser;
         }
         await this.userRepository.save(user);

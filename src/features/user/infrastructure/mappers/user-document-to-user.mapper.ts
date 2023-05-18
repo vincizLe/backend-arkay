@@ -12,6 +12,7 @@ export function userDocumentToUser(userDocument: UserDocument): User {
 		generalScore: userDocument?.generalScore ?? null,
 		coins: userDocument?.coins ?? null,
 		hasReminder: userDocument.hasReminder,
-		reminderDate: userDocument?.reminderDate ?? null
+		reminderDate: userDocument?.reminderDate ?? null,
+		purchasedItems: userDocument.purchasedItems.map(item => item.toHexString())
 	})
 }

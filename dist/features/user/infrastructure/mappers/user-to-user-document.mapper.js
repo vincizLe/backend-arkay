@@ -14,7 +14,8 @@ function userToUserDocument(user) {
         generalScore: (_b = user === null || user === void 0 ? void 0 : user.generalScore) !== null && _b !== void 0 ? _b : null,
         coins: (_c = user === null || user === void 0 ? void 0 : user.coins) !== null && _c !== void 0 ? _c : null,
         hasReminder: user.hasReminder,
-        reminderDate: (_d = user === null || user === void 0 ? void 0 : user.reminderDate) !== null && _d !== void 0 ? _d : null
+        reminderDate: (_d = user === null || user === void 0 ? void 0 : user.reminderDate) !== null && _d !== void 0 ? _d : null,
+        purchasedItems: user.purchasedItems.map(item => new mongodb_1.ObjectId(item))
     };
 }
 exports.userToUserDocument = userToUserDocument;

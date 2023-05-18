@@ -29,6 +29,8 @@ export class SaveUseCase {
 				currentUser.reminderDate = user.reminderDate
 			}
 
+			currentUser.purchasedItems = user.purchasedItems
+
 			user = currentUser
 		}
 

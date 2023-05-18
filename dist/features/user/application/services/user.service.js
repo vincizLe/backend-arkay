@@ -32,7 +32,8 @@ let UserService = class UserService {
             generalScore: createDto.generalScore,
             coins: createDto.coins,
             hasReminder: createDto.hasReminder,
-            reminderDate: createDto.reminderDate
+            reminderDate: createDto.reminderDate,
+            purchasedItems: createDto.purchasedItems
         }));
     }
     async update(userDto) {
@@ -47,7 +48,8 @@ let UserService = class UserService {
             generalScore: userDto.generalScore,
             coins: userDto.coins,
             hasReminder: userDto.hasReminder,
-            reminderDate: userDto.reminderDate
+            reminderDate: userDto.reminderDate,
+            purchasedItems: userDto.purchasedItems
         }));
     }
     async detail(userId) {

@@ -7,6 +7,7 @@ class User {
         this.generalScore = 0;
         this.coins = 0;
         this.reminderDate = null;
+        this.purchasedItems = new Array();
         Object.assign(this, entity);
     }
 }

@@ -13,6 +13,7 @@ export function userToUserDocument(user: User): UserDocument {
 		generalScore: user?.generalScore ?? null,
 		coins: user?.coins ?? null,
 		hasReminder: user.hasReminder,
-		reminderDate: user?.reminderDate ?? null
+		reminderDate: user?.reminderDate ?? null,
+		purchasedItems: user.purchasedItems.map(item => new ObjectId(item))
 	}
 }

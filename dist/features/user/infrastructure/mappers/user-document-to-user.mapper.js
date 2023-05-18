@@ -14,7 +14,8 @@ function userDocumentToUser(userDocument) {
         generalScore: (_b = userDocument === null || userDocument === void 0 ? void 0 : userDocument.generalScore) !== null && _b !== void 0 ? _b : null,
         coins: (_c = userDocument === null || userDocument === void 0 ? void 0 : userDocument.coins) !== null && _c !== void 0 ? _c : null,
         hasReminder: userDocument.hasReminder,
-        reminderDate: (_d = userDocument === null || userDocument === void 0 ? void 0 : userDocument.reminderDate) !== null && _d !== void 0 ? _d : null
+        reminderDate: (_d = userDocument === null || userDocument === void 0 ? void 0 : userDocument.reminderDate) !== null && _d !== void 0 ? _d : null,
+        purchasedItems: userDocument.purchasedItems.map(item => item.toHexString())
     });
 }
 exports.userDocumentToUser = userDocumentToUser;

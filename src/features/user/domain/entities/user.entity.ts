@@ -9,6 +9,7 @@ export class User {
 	coins?: number = 0
 	hasReminder: boolean
 	reminderDate?: Date = null
+	purchasedItems = new Array<string>()
 
 	constructor(entity: User) {
 		Object.assign(this, entity)

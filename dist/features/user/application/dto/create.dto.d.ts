@@ -8,4 +8,5 @@ export declare class CreateDto {
     coins?: number;
     hasReminder?: boolean;
     reminderDate?: Date;
+    purchasedItems: string[];
 }

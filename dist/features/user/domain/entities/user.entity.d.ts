@@ -9,5 +9,6 @@ export declare class User {
     coins?: number;
     hasReminder: boolean;
     reminderDate?: Date;
+    purchasedItems: string[];
     constructor(entity: User);
 }

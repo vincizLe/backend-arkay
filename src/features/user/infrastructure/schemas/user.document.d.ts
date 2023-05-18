@@ -11,4 +11,5 @@ export interface UserDocument {
 	coins?: number
 	hasReminder: boolean
 	reminderDate?: Date
+	purchasedItems: Array<ObjectId>
 }
