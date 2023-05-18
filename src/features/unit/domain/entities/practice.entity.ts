@@ -1,7 +1,5 @@
 export class Practice {
 	id?: string
-	//statement: string
-	//testData = Array<[string, string]>()
 	score?: number = 0
 	isCompleted: boolean
 

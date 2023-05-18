@@ -1,13 +1,13 @@
 import { UnitEnum } from 'src/core/enums/unit.enum'
-import { Assessment } from '../entities/assessment.entity'
+import { Session } from '../entities/session.entity'
 import { UnitRepository } from '../repositories/unit.repository'
 
-export class GetAssessmentUseCase {
+export class GetSessionUseCase {
 	constructor(private readonly unitRepository: UnitRepository) {}
 
-	async execute(unitName: UnitEnum, userId: string): Promise<Assessment> {
+	async execute(unitName: UnitEnum, userId: string): Promise<Session> {
 		const unit = await this.unitRepository.getOne(unitName, userId)
 
-		return unit.assessment
+		return unit.session
 	}
 }
