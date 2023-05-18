@@ -17,8 +17,10 @@ const common_1 = require("@nestjs/common");
 const decorators_1 = require("@nestjs/common/decorators");
 const swagger_1 = require("@nestjs/swagger");
 const user_id_dto_1 = require("../../../user/application/dto/user-id.dto");
-const assessment_detail_dto_1 = require("../dto/assessment-detail.dto");
-const get_assessment_dto_1 = require("../dto/get-assessment.dto");
+const assessment_dto_1 = require("../dto/assessment.dto");
+const practice_dto_1 = require("../dto/practice.dto");
+const session_dto_1 = require("../dto/session.dto");
+const unit_name_dto_1 = require("../dto/unit-name.dto");
 const unit_service_1 = require("../services/unit.service");
 let UnitHttpController = class UnitHttpController {
     constructor(unitService) {
@@ -27,8 +29,23 @@ let UnitHttpController = class UnitHttpController {
     async createUnit({ userId }) {
         return await this.unitService.save(userId);
     }
-    async getAssessment({ unit, userId }) {
-        return await this.unitService.getAssessment(unit, userId);
+    async updateSession({ unitName, userId }, sessionDto) {
+        return await this.unitService.saveSession(unitName, userId, sessionDto);
+    }
+    async updateAssessment({ unitName, userId }, assessmentDto) {
+        return await this.unitService.saveAssessment(unitName, userId, assessmentDto);
+    }
+    async updatePractice({ unitName, userId }, practiceDto) {
+        return await this.unitService.savePractice(unitName, userId, practiceDto);
+    }
+    async getSession({ unitName, userId }) {
+        return await this.unitService.getSession(unitName, userId);
+    }
+    async getAssessment({ unitName, userId }) {
+        return await this.unitService.getAssessment(unitName, userId);
+    }
+    async getPractice({ unitName, userId }) {
+        return await this.unitService.getPractice(unitName, userId);
     }
 };
 __decorate([
@@ -40,14 +57,59 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UnitHttpController.prototype, "createUnit", null);
 __decorate([
-    (0, decorators_1.Get)(':unitId/assessment'),
-    (0, swagger_1.ApiOperation)({ summary: 'Obtener evaluación' }),
-    (0, swagger_1.ApiOkResponse)({ type: assessment_detail_dto_1.AssessmentDetailDto, description: 'Evaluación' }),
+    (0, decorators_1.Put)('/session'),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar sesión' }),
+    __param(0, (0, decorators_1.Query)()),
+    __param(1, (0, decorators_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto, session_dto_1.SessionDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "updateSession", null);
+__decorate([
+    (0, decorators_1.Put)('/assessment'),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar evaluación' }),
+    __param(0, (0, decorators_1.Query)()),
+    __param(1, (0, decorators_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto, assessment_dto_1.AssessmentDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "updateAssessment", null);
+__decorate([
+    (0, decorators_1.Put)('/practice'),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar práctica' }),
+    __param(0, (0, decorators_1.Query)()),
+    __param(1, (0, decorators_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto, practice_dto_1.PracticeDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "updatePractice", null);
+__decorate([
+    (0, decorators_1.Get)('/session'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener sesión' }),
+    (0, swagger_1.ApiOkResponse)({ type: session_dto_1.SessionDto, description: 'Evaluación' }),
     __param(0, (0, decorators_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [get_assessment_dto_1.GetAssessmentDto]),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "getSession", null);
+__decorate([
+    (0, decorators_1.Get)('/assessment'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener evaluación' }),
+    (0, swagger_1.ApiOkResponse)({ type: assessment_dto_1.AssessmentDto, description: 'Evaluación' }),
+    __param(0, (0, decorators_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto]),
     __metadata("design:returntype", Promise)
 ], UnitHttpController.prototype, "getAssessment", null);
+__decorate([
+    (0, decorators_1.Get)('/practice'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener práctica' }),
+    (0, swagger_1.ApiOkResponse)({ type: practice_dto_1.PracticeDto, description: 'Evaluación' }),
+    __param(0, (0, decorators_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [unit_name_dto_1.UnitNameDto]),
+    __metadata("design:returntype", Promise)
+], UnitHttpController.prototype, "getPractice", null);
 UnitHttpController = __decorate([
     (0, swagger_1.ApiTags)('Unit'),
     (0, common_1.Controller)({ path: 'unit' }),

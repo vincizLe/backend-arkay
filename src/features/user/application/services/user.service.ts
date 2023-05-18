@@ -20,7 +20,13 @@ export class UserService {
 				email: createDto.email,
 				password: createDto.password,
 				name: createDto.name,
-				lastname: createDto.lastname
+				lastname: createDto.lastname,
+				imageUrl: createDto.imageUrl,
+				generalScore: createDto.generalScore,
+				coins: createDto.coins,
+				hasReminder: createDto.hasReminder,
+				reminderDate: createDto.reminderDate,
+				purchasedItems: createDto.purchasedItems
 			})
 		)
 	}
@@ -34,7 +40,13 @@ export class UserService {
 				email: userDto.email,
 				password: userDto.password,
 				name: userDto.name,
-				lastname: userDto.lastname
+				lastname: userDto.lastname,
+				imageUrl: userDto.imageUrl,
+				generalScore: userDto.generalScore,
+				coins: userDto.coins,
+				hasReminder: userDto.hasReminder,
+				reminderDate: userDto.reminderDate,
+				purchasedItems: userDto.purchasedItems
 			})
 		)
 	}

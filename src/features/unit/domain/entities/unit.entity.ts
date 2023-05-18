@@ -1,12 +1,14 @@
 import { UnitEnum } from '../../../../core/enums/unit.enum'
 import { Assessment } from './assessment.entity'
+import { Practice } from './practice.entity'
+import { Session } from './session.entity'
 
 export class Unit {
 	id?: string
 	name: UnitEnum
-	//sessions = Array<Session>()
+	session?: Session
 	assessment?: Assessment
-	//practices = Array<Practice>()
+	practice?: Practice
 	isCompleted: boolean
 	userId: string
 
@@ -16,11 +18,11 @@ export class Unit {
 		if (params.id != null && params.id != undefined) unit.id = params.id
 
 		unit.name = params.name
-		//unit.sessions = params.sessions
+		unit.session = params.session
 
 		if (params.assessment != null && params.assessment != undefined) unit.assessment = params.assessment
 
-		//unit.practices = params.practices
+		unit.practice = params.practice
 		unit.isCompleted = params.isCompleted
 		unit.userId = params.userId
 
@@ -29,5 +31,5 @@ export class Unit {
 }
 
 export namespace Unit {
-	export type CreateParams = Partial<Pick<Unit, 'id' | 'assessment'>> & Pick<Unit, 'name' | 'isCompleted' | 'userId'>
+	export type CreateParams = Partial<Pick<Unit, 'id' | 'session' | 'assessment' | 'practice'>> & Pick<Unit, 'name' | 'isCompleted' | 'userId'>
 }

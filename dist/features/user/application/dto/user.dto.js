@@ -11,9 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class UserDto {
     constructor(entity) {
+        this.imageUrl = null;
+        this.generalScore = 0;
+        this.coins = 0;
+        this.hasReminder = false;
+        this.reminderDate = null;
+        this.purchasedItems = Array();
         Object.assign(this, entity);
     }
 }
@@ -47,5 +54,43 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], UserDto.prototype, "lastname", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", String)
+], UserDto.prototype, "imageUrl", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", Number)
+], UserDto.prototype, "generalScore", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", Number)
+], UserDto.prototype, "coins", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", Boolean)
+], UserDto.prototype, "hasReminder", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDate)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", Date)
+], UserDto.prototype, "reminderDate", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    (0, class_transformer_1.Type)(() => String),
+    (0, class_validator_1.ValidateNested)(),
+    __metadata("design:type", Object)
+], UserDto.prototype, "purchasedItems", void 0);
 exports.UserDto = UserDto;
 //# sourceMappingURL=user.dto.js.map

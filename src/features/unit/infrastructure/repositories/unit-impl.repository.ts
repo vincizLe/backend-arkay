@@ -1,10 +1,8 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 import { Collection, Db, ObjectId } from 'mongodb'
 import { UnitEnum } from 'src/core/enums/unit.enum'
-import { Assessment } from '../../domain/entities/assessment.entity'
 import { Unit } from '../../domain/entities/unit.entity'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
-import { assessmentDocumentToAssessmentMapper } from '../mappers/assessment-document-to-assessment.mapper'
 import { unitDocumentToUnitMapper } from '../mappers/unit-document-to-unit.mapper'
 import { unitToUnitDocumentMapper } from '../mappers/unit-to-unit-document.mapper'
 import { UnitDocument } from '../schemas/unit.documents'
@@ -27,6 +25,16 @@ export class UnitImplRepository implements UnitRepository {
 		)
 	}
 
+	async getOne(unitName: UnitEnum, userId: string): Promise<Unit> {
+		const unitDocument = await this.collection.findOne({ name: unitName, userId })
+
+		if (unitDocument != null && unitDocument != undefined) {
+			return unitDocumentToUnitMapper(unitDocument)
+		} else {
+			throw new NotFoundException('No se ha encontrado la unidad ')
+		}
+	}
+
 	async getById(unitId: string): Promise<Unit> {
 		const unitDocument = await this.collection.findOne({ _id: new ObjectId(unitId) })
 
@@ -35,11 +43,5 @@ export class UnitImplRepository implements UnitRepository {
 		} else {
 			throw new NotFoundException(`No se ha encontrado la unidad con el id: ${unitId} `)
 		}
-	}
-
-	async getAssessment(unit: UnitEnum, userId: string): Promise<Assessment> {
-		const unitDocument = await this.collection.findOne({ name: unit, userId })
-
-		return assessmentDocumentToAssessmentMapper(unitDocument.assessment)
 	}
 }

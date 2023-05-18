@@ -1,7 +1,6 @@
 export class Practice {
 	id?: string
-	statement: string
-	testData = Array<[string, string]>()
+	score?: number = 0
 	isCompleted: boolean
 
 	static create(params: Practice.CreateParams): Practice {
@@ -9,14 +8,14 @@ export class Practice {
 
 		if (params.id != null && params.id != undefined) practice.id = params.id
 
-		practice.statement = params.statement
-		practice.testData = params.testData
 		practice.isCompleted = params.isCompleted
+
+		if (params.score != null && params.score != undefined) practice.score = params.score
 
 		return practice
 	}
 }
 
 export namespace Practice {
-	export type CreateParams = Partial<Pick<Practice, 'id'>> & Pick<Practice, 'statement' | 'testData' | 'isCompleted'>
+	export type CreateParams = Partial<Pick<Practice, 'id' | 'score'>> & Pick<Practice, 'isCompleted'>
 }
