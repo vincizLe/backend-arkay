@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Product } from '../../domain/entities/product.entity'
+import { ListQuery } from '../../domain/queries/list.query'
 import { ProductRepository } from '../../domain/repositories/product.repository'
 import { ProductDto } from '../dto/product.dto'
 
@@ -13,7 +14,8 @@ export class ProductService {
 			type: productDto.type,
 			name: productDto.name,
 			cost: productDto.cost,
-			imageUrl: productDto.imageUrl
+			imageUrl: productDto.imageUrl,
+			videoUrl: productDto.videoUrl ?? null
 		})
 
 		await this.productRepository.save(product)
@@ -23,8 +25,8 @@ export class ProductService {
 		return await this.productRepository.getById(productId)
 	}
 
-	async list(): Promise<Array<Product>> {
-		return await this.productRepository.list()
+	async list(type: string): Promise<Array<Product>> {
+		return await this.productRepository.list(new ListQuery({ type }))
 	}
 
 	async delete(productId: string): Promise<void> {

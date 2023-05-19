@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
-import { IsNotEmpty, IsString } from 'class-validator'
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator'
 
 export class ProductDto {
 	@IsNotEmpty()
@@ -26,4 +26,9 @@ export class ProductDto {
 	@IsString()
 	@ApiProperty()
 	imageUrl: string
+
+	@IsOptional()
+	@IsString()
+	@ApiPropertyOptional()
+	videoUrl?: string
 }

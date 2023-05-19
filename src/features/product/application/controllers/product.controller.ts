@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common'
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
+import { ListProductDto } from '../dto/list-product.dto'
 import { ProductIdDto } from '../dto/product-id.dto'
 import { ProductDto } from '../dto/product.dto'
 import { ProductService } from '../services/product.service'
@@ -25,8 +26,8 @@ export class ProductHttpController {
 	@Get('')
 	@ApiOperation({ summary: 'Listar productos' })
 	@ApiOkResponse({ type: Array<ProductDto>, description: 'Producto' })
-	async listproduct(): Promise<Array<ProductDto>> {
-		return await this.productService.list()
+	async listproduct(@Query() { type }: ListProductDto): Promise<Array<ProductDto>> {
+		return await this.productService.list(type)
 	}
 
 	@Delete('/:productId')

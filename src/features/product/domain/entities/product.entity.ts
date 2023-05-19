@@ -4,6 +4,7 @@ export class Product {
 	name: string
 	cost: number
 	imageUrl: string
+	videoUrl?: string
 
 	constructor(entity: Product) {
 		Object.assign(this, entity)
