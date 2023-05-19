@@ -11,7 +11,7 @@ export class ProjectImplRepository implements ProjectRepository {
 	private readonly collection: Collection<ProjectDocument>
 
 	constructor(@Inject('DATABASE_CONNECTION') private readonly db: Db) {
-		this.collection = db.collection('units')
+		this.collection = db.collection('projects')
 	}
 
 	async save(project: Project): Promise<void> {

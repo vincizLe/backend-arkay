@@ -23,9 +23,7 @@ let TemplateImplRepository = class TemplateImplRepository {
         this.collection = db.collection('templates');
     }
     async save(template) {
-        console.log(template);
         const templateDocument = (0, template_to_template_document_mapper_1.templateToTemplateDocumentMapper)(template);
-        console.log(templateDocument);
         await this.collection.updateOne({ unit: templateDocument.unit }, { $set: { ...templateDocument, createdAt: new Date(), updatedAt: new Date() } }, { upsert: true });
     }
     async getOne(unit) {
