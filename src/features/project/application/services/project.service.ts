@@ -9,6 +9,7 @@ export class ProjectService {
 
 	async save(projectDto: ProjectDto): Promise<void> {
 		const project = new Project({
+			id: projectDto.id ?? null,
 			url: projectDto.url,
 			isPublished: projectDto.isPublished,
 			isShared: projectDto.isShared,

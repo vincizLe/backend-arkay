@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common'
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
+import { UserIdDto } from 'src/features/user/application/dto/user-id.dto'
 import { ProjectIdDto } from '../dto/project-id.dto'
 import { ProjectDto } from '../dto/project.dto'
 import { ProjectService } from '../services/project.service'
@@ -25,8 +26,8 @@ export class ProjectHttpController {
 	@Get('')
 	@ApiOperation({ summary: 'Listar proyectos' })
 	@ApiOkResponse({ type: Array<ProjectDto>, description: 'Proyecto' })
-	async listProject(@Param() { projectId }: ProjectIdDto): Promise<Array<ProjectDto>> {
-		return await this.projectService.list(projectId)
+	async listProject(@Query() { userId }: UserIdDto): Promise<Array<ProjectDto>> {
+		return await this.projectService.list(userId)
 	}
 
 	@Delete('/:projectId')

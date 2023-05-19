@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { IsEnum, IsNotEmpty } from 'class-validator'
 import { UnitEnum } from '../../../../core/enums/unit.enum'
-import { UserIdDto } from './user-id.dto'
+import { UserIdDto } from '../../../../features/user/application/dto/user-id.dto'
 
 export class UnitNameDto extends UserIdDto {
 	@IsNotEmpty()

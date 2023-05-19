@@ -26,12 +26,13 @@ export function templateToTemplateDocumentMapper(template: Template): TemplateDo
 						)
 				  }
 				: null,
-		statementsTemplate: template.statementsTemplate.map(statementTemplate => {
-			return {
-				question: statementTemplate.question,
-				answer: statementTemplate.answer,
-				alternativeAnswers: statementTemplate.alternativeAnswers
-			}
-		})
+		statementsTemplate:
+			template.statementsTemplate?.map(statementTemplate => {
+				return {
+					question: statementTemplate.question,
+					answer: statementTemplate.answer,
+					alternativeAnswers: statementTemplate.alternativeAnswers
+				}
+			}) ?? []
 	}
 }
