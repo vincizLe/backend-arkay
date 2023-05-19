@@ -6,4 +6,5 @@ export class ProductDocument {
 	name: string
 	cost: number
 	imageUrl: string
+	videoUrl?: string
 }

@@ -8,6 +8,7 @@ export function productToProductDocument(product: Product): ProductDocument {
 		type: product.type,
 		name: product.name,
 		cost: product.cost,
-		imageUrl: product.imageUrl
+		imageUrl: product.imageUrl,
+		videoUrl: product.videoUrl ?? null
 	}
 }

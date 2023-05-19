@@ -1,9 +1,11 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 import { Collection, Db, ObjectId } from 'mongodb'
 import { Product } from '../../domain/entities/product.entity'
+import { ListQuery } from '../../domain/queries/list.query'
 import { ProductRepository } from '../../domain/repositories/product.repository'
 import { productDocumentToProduct } from '../mappers/product-document-to-product.mapper'
 import { productToProductDocument } from '../mappers/product-to-product-document.mapper'
+import { listFilterQuery } from '../query/list-filter.query'
 import { ProductDocument } from '../schemas/product.schema'
 
 @Injectable()
@@ -32,8 +34,8 @@ export class ProductImplRepository implements ProductRepository {
 			throw new NotFoundException(`No se ha encontrado el proyecto con el id: ${productId} `)
 		}
 	}
-	async list(): Promise<Product[]> {
-		const productDocumentCursor = this.collection.find()
+	async list(listQuery: ListQuery): Promise<Product[]> {
+		const productDocumentCursor = this.collection.find(listFilterQuery(listQuery))
 
 		const products = new Array<Product>()
 
