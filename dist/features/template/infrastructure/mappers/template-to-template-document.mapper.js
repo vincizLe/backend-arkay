@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.templateToTemplateDocumentMapper = void 0;
 function templateToTemplateDocumentMapper(template) {
+    var _a, _b;
     return {
         unit: template.unit,
         sessionTemplate: template.sessionTemplate != null || template.sessionTemplate != undefined
@@ -22,13 +23,13 @@ function templateToTemplateDocumentMapper(template) {
                 })
             }
             : null,
-        statementsTemplate: template.statementsTemplate.map(statementTemplate => {
+        statementsTemplate: (_b = (_a = template.statementsTemplate) === null || _a === void 0 ? void 0 : _a.map(statementTemplate => {
             return {
                 question: statementTemplate.question,
                 answer: statementTemplate.answer,
                 alternativeAnswers: statementTemplate.alternativeAnswers
             };
-        })
+        })) !== null && _b !== void 0 ? _b : []
     };
 }
 exports.templateToTemplateDocumentMapper = templateToTemplateDocumentMapper;
