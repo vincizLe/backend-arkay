@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common'
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
-import { UserIdDto } from 'src/features/user/application/dto/user-id.dto'
+import { UserIdDto } from '../../../../features/user/application/dto/user-id.dto'
 import { ProjectIdDto } from '../dto/project-id.dto'
 import { ProjectDto } from '../dto/project.dto'
 import { ProjectService } from '../services/project.service'
