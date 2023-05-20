@@ -1,5 +1,5 @@
-import { UnitEnum } from 'src/core/enums/unit.enum'
-import { UserRepository } from 'src/features/user/domain/repositories/user.repository'
+import { UnitEnum } from '../../../../core/enums/unit.enum'
+import { UserRepository } from '../../../../features/user/domain/repositories/user.repository'
 import { Session } from '../entities/session.entity'
 import { UnitRepository } from '../repositories/unit.repository'
 
