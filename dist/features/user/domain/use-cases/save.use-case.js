@@ -21,6 +21,7 @@ class SaveUseCase {
             if (user.coins != null || user.coins != undefined) {
                 currentUser.coins = user.coins;
             }
+            currentUser.hasReminder = user.hasReminder;
             if (user.hasReminder == true) {
                 currentUser.reminderDate = user.reminderDate;
             }
