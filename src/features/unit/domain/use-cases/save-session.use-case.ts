@@ -15,8 +15,8 @@ export class SaveSessionUseCase {
 
 		const user = await this.userRepository.getById(userId)
 
-		if (!!unit.assessment.score) {
-			user.coins = unit.assessment.score + user.coins ?? 0
+		if (!!unit.session.score) {
+			user.coins = unit.session.score + user.coins ?? 0
 		}
 
 		let generalScore: number = 0

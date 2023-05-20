@@ -15,8 +15,8 @@ export class SavePracticeUseCase {
 
 		const user = await this.userRepository.getById(userId)
 
-		if (!!unit.assessment.score) {
-			user.coins = unit.assessment.score + user.coins ?? 0
+		if (!!unit.practice.score) {
+			user.coins = unit.practice.score + user.coins ?? 0
 		}
 
 		let generalScore: number = 0
