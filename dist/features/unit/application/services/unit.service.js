@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnitService = void 0;
 const common_1 = require("@nestjs/common");
+const user_repository_1 = require("../../../user/domain/repositories/user.repository");
 const template_repository_1 = require("../../../template/domain/repositories/template.repository");
 const unit_repository_1 = require("../../domain/repositories/unit.repository");
 const get_assessment_use_case_1 = require("../../domain/use-cases/get-assessment.use-case");
@@ -27,16 +28,17 @@ const practice_to_practice_dto_mapper_1 = require("../mappers/practice-to-practi
 const session_dto_to_session_mapper_1 = require("../mappers/session-dto-to-session.mapper");
 const session_to_session_dto_mapper_1 = require("../mappers/session-to-session-dto.mapper");
 let UnitService = class UnitService {
-    constructor(unitRepository, templateRepository) {
+    constructor(unitRepository, templateRepository, userRepository) {
         this.unitRepository = unitRepository;
         this.templateRepository = templateRepository;
+        this.userRepository = userRepository;
     }
     async save(userId) {
         const useCase = new save_unit_use_case_1.SaveUnitUseCase(this.unitRepository, this.templateRepository);
         await useCase.execute(userId);
     }
     async saveSession(unitName, userId, sessionDto) {
-        const useCase = new save_session_use_case_1.SaveSessionUseCase(this.unitRepository);
+        const useCase = new save_session_use_case_1.SaveSessionUseCase(this.unitRepository, this.userRepository);
         await useCase.execute(unitName, userId, (0, session_dto_to_session_mapper_1.sessionDtoToSession)(sessionDto));
     }
     async saveAssessment(unitName, userId, assessmentDto) {
@@ -62,7 +64,9 @@ let UnitService = class UnitService {
 };
 UnitService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [unit_repository_1.UnitRepository, template_repository_1.TemplateRepository])
+    __metadata("design:paramtypes", [unit_repository_1.UnitRepository,
+        template_repository_1.TemplateRepository,
+        user_repository_1.UserRepository])
 ], UnitService);
 exports.UnitService = UnitService;
 //# sourceMappingURL=unit.service.js.map
