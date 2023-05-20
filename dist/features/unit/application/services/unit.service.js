@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnitService = void 0;
 const common_1 = require("@nestjs/common");
-const user_repository_1 = require("src/features/user/domain/repositories/user.repository");
+const user_repository_1 = require("../../../user/domain/repositories/user.repository");
 const template_repository_1 = require("../../../template/domain/repositories/template.repository");
 const unit_repository_1 = require("../../domain/repositories/unit.repository");
 const get_assessment_use_case_1 = require("../../domain/use-cases/get-assessment.use-case");
