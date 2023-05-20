@@ -39,12 +39,12 @@ export class UnitService {
 	}
 
 	async saveAssessment(unitName: UnitEnum, userId: string, assessmentDto: AssessmentDto): Promise<void> {
-		const useCase = new SaveAssessmentUseCase(this.unitRepository)
+		const useCase = new SaveAssessmentUseCase(this.unitRepository, this.userRepository)
 		await useCase.execute(unitName, userId, assessmentDtoToAssessment(assessmentDto))
 	}
 
 	async savePractice(unitName: UnitEnum, userId: string, practiceDto: PracticeDto): Promise<void> {
-		const useCase = new SavePracticeUseCase(this.unitRepository)
+		const useCase = new SavePracticeUseCase(this.unitRepository, this.userRepository)
 		await useCase.execute(unitName, userId, practiceDtoToPractice(practiceDto))
 	}
 

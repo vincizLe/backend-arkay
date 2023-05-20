@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnitService = void 0;
 const common_1 = require("@nestjs/common");
-const user_repository_1 = require("../../../user/domain/repositories/user.repository");
+const user_repository_1 = require("src/features/user/domain/repositories/user.repository");
 const template_repository_1 = require("../../../template/domain/repositories/template.repository");
 const unit_repository_1 = require("../../domain/repositories/unit.repository");
 const get_assessment_use_case_1 = require("../../domain/use-cases/get-assessment.use-case");
@@ -42,11 +42,11 @@ let UnitService = class UnitService {
         await useCase.execute(unitName, userId, (0, session_dto_to_session_mapper_1.sessionDtoToSession)(sessionDto));
     }
     async saveAssessment(unitName, userId, assessmentDto) {
-        const useCase = new save_assessment_use_case_1.SaveAssessmentUseCase(this.unitRepository);
+        const useCase = new save_assessment_use_case_1.SaveAssessmentUseCase(this.unitRepository, this.userRepository);
         await useCase.execute(unitName, userId, (0, assessment_dto_to_assessment_mapper_1.assessmentDtoToAssessment)(assessmentDto));
     }
     async savePractice(unitName, userId, practiceDto) {
-        const useCase = new save_practice_use_case_1.SavePracticeUseCase(this.unitRepository);
+        const useCase = new save_practice_use_case_1.SavePracticeUseCase(this.unitRepository, this.userRepository);
         await useCase.execute(unitName, userId, (0, practice_dto_to_practice_mapper_1.practiceDtoToPractice)(practiceDto));
     }
     async getSession(unitName, userId) {

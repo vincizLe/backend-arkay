@@ -14,7 +14,22 @@ export class SaveSessionUseCase {
 		await this.unitRepository.save(unit)
 
 		const user = await this.userRepository.getById(userId)
-		user.generalScore = unit?.session?.score ?? 0 + unit?.assessment?.score ?? 0 + unit?.practice?.score ?? 0
+
+		if (!!unit.session) {
+			user.coins = unit.session?.score ?? 0 + user.generalScore ?? 0
+
+			let generalScore: number = 0
+
+			if (unitName === UnitEnum.UNIT_1) {
+				generalScore = unit.session.isCompleted === true ? 10 : 0
+				user.generalScore = generalScore + user?.generalScore ?? 0
+			} else if (unitName === UnitEnum.UNIT_5) {
+				//do nothing
+			} else {
+				generalScore = unit.session.isCompleted === true ? 5 : 0
+				user.generalScore = generalScore + user?.generalScore ?? 0
+			}
+		}
 
 		await this.userRepository.save(user)
 	}
