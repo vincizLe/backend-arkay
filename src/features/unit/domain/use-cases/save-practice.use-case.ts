@@ -24,17 +24,15 @@ export class SavePracticeUseCase {
 		for (const unitEnum of UnitEnum.toArray()) {
 			const _unit = await this.unitRepository.getOne(unitEnum, userId)
 
-			if (!!_unit.assessment) {
-				if (unitEnum === UnitEnum.UNIT_1) {
-					generalScore = (unit.assessment.isCompleted === true ? 10 : 0) + generalScore
-					generalScore = (unit.session.isCompleted === true ? 10 : 0) + generalScore
-				} else if (unitEnum === UnitEnum.UNIT_5) {
-					generalScore = (unit.practice.isCompleted === true ? 20 : 0) + generalScore
-				} else {
-					generalScore = (unit.assessment.isCompleted === true ? 5 : 0) + generalScore
-					generalScore = (unit.session.isCompleted === true ? 5 : 0) + generalScore
-					generalScore = (unit.practice.isCompleted === true ? 10 : 0) + generalScore
-				}
+			if (unitEnum === UnitEnum.UNIT_1) {
+				generalScore = (_unit.assessment.isCompleted === true ? 10 : 0) + generalScore
+				generalScore = (_unit.session.isCompleted === true ? 10 : 0) + generalScore
+			} else if (unitEnum === UnitEnum.UNIT_5) {
+				generalScore = (_unit.practice.isCompleted === true ? 20 : 0) + generalScore
+			} else {
+				generalScore = (_unit.assessment.isCompleted === true ? 5 : 0) + generalScore
+				generalScore = (_unit.session.isCompleted === true ? 5 : 0) + generalScore
+				generalScore = (_unit.practice.isCompleted === true ? 10 : 0) + generalScore
 			}
 		}
 

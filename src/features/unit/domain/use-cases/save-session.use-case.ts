@@ -26,14 +26,14 @@ export class SaveSessionUseCase {
 
 			if (!!_unit.assessment) {
 				if (unitEnum === UnitEnum.UNIT_1) {
-					generalScore = (unit.assessment.isCompleted === true ? 10 : 0) + generalScore
-					generalScore = (unit.session.isCompleted === true ? 10 : 0) + generalScore
+					generalScore = (_unit.assessment.isCompleted === true ? 10 : 0) + generalScore
+					generalScore = (_unit.session.isCompleted === true ? 10 : 0) + generalScore
 				} else if (unitEnum === UnitEnum.UNIT_5) {
-					generalScore = (unit.practice.isCompleted === true ? 20 : 0) + generalScore
+					generalScore = (_unit.practice.isCompleted === true ? 20 : 0) + generalScore
 				} else {
-					generalScore = (unit.assessment.isCompleted === true ? 5 : 0) + generalScore
-					generalScore = (unit.session.isCompleted === true ? 5 : 0) + generalScore
-					generalScore = (unit.practice.isCompleted === true ? 10 : 0) + generalScore
+					generalScore = (_unit.assessment.isCompleted === true ? 5 : 0) + generalScore
+					generalScore = (_unit.session.isCompleted === true ? 5 : 0) + generalScore
+					generalScore = (_unit.practice.isCompleted === true ? 10 : 0) + generalScore
 				}
 			}
 		}
