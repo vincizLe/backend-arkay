@@ -1,5 +1,5 @@
 import { UnitEnum } from 'src/core/enums/unit.enum'
-import { UserRepository } from 'src/features/user/domain/repositories/user.repository'
+import { UserRepository } from '../../../../features/user/domain/repositories/user.repository'
 import { Assessment } from '../entities/assessment.entity'
 import { UnitRepository } from '../repositories/unit.repository'
 

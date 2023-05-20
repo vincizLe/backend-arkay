@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { UnitEnum } from 'src/core/enums/unit.enum'
-import { UserRepository } from 'src/features/user/domain/repositories/user.repository'
+import { UserRepository } from '../../../../features/user/domain/repositories/user.repository'
 import { TemplateRepository } from '../../../template/domain/repositories/template.repository'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
 import { GetAssessmentUseCase } from '../../domain/use-cases/get-assessment.use-case'
