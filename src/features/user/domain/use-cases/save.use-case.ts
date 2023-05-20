@@ -25,6 +25,8 @@ export class SaveUseCase {
 				currentUser.coins = user.coins
 			}
 
+			currentUser.hasReminder = user.hasReminder
+
 			if (user.hasReminder == true) {
 				currentUser.reminderDate = user.reminderDate
 			}

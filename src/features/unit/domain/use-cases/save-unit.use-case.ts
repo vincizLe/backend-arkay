@@ -1,5 +1,5 @@
-import { TemplateRepository } from 'src/features/template/domain/repositories/template.repository'
 import { UnitEnum } from '../../../../core/enums/unit.enum'
+import { TemplateRepository } from '../../../../features/template/domain/repositories/template.repository'
 import { Assessment } from '../entities/assessment.entity'
 import { Practice } from '../entities/practice.entity'
 import { Session } from '../entities/session.entity'
@@ -16,22 +16,35 @@ export class SaveUnitUseCase {
 
 			const unit = Unit.create({
 				name: unitEnum,
-				session: Session.create({
-					name: template.sessionTemplate.sessionName,
-					videoUrl: template.sessionTemplate?.videoUrl ?? null,
-					isCompleted: false
-				}),
-				assessment: Assessment.create({
-					statements: template.statementsTemplate.map(statement => {
-						return Statement.create({
-							question: statement.question,
-							answer: statement.answer,
-							alternativeAnswers: statement.alternativeAnswers,
+				session: !!template.sessionTemplate
+					? Session.create({
+							name: template.sessionTemplate
+								.sessionName,
+							videoUrl:
+								template
+									.sessionTemplate
+									?.videoUrl ??
+								null,
 							isCompleted: false
-						})
-					}),
-					isCompleted: false
-				}),
+					  })
+					: null,
+				assessment: !!template.statementsTemplate
+					? Assessment.create({
+							statements: template.statementsTemplate.map(
+								statement => {
+									return Statement.create(
+										{
+											question: statement.question,
+											answer: statement.answer,
+											alternativeAnswers: statement.alternativeAnswers,
+											isCompleted: false
+										}
+									)
+								}
+							),
+							isCompleted: false
+					  })
+					: null,
 				practice: Practice.create({
 					isCompleted: false
 				}),
@@ -39,7 +52,7 @@ export class SaveUnitUseCase {
 				userId
 			})
 
-			return await this.unitRepository.save(unit)
+			await this.unitRepository.save(unit)
 		}
 	}
 }

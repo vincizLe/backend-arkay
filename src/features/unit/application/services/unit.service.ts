@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { UnitEnum } from 'src/core/enums/unit.enum'
+import { UserRepository } from '../../../../features/user/domain/repositories/user.repository'
 import { TemplateRepository } from '../../../template/domain/repositories/template.repository'
 import { UnitRepository } from '../../domain/repositories/unit.repository'
 import { GetAssessmentUseCase } from '../../domain/use-cases/get-assessment.use-case'
@@ -21,7 +22,11 @@ import { sessionToSessionDto } from '../mappers/session-to-session-dto.mapper'
 
 @Injectable()
 export class UnitService {
-	constructor(private readonly unitRepository: UnitRepository, private readonly templateRepository: TemplateRepository) {}
+	constructor(
+		private readonly unitRepository: UnitRepository,
+		private readonly templateRepository: TemplateRepository,
+		private readonly userRepository: UserRepository
+	) {}
 
 	async save(userId: string): Promise<void> {
 		const useCase = new SaveUnitUseCase(this.unitRepository, this.templateRepository)
@@ -29,17 +34,17 @@ export class UnitService {
 	}
 
 	async saveSession(unitName: UnitEnum, userId: string, sessionDto: SessionDto): Promise<void> {
-		const useCase = new SaveSessionUseCase(this.unitRepository)
+		const useCase = new SaveSessionUseCase(this.unitRepository, this.userRepository)
 		await useCase.execute(unitName, userId, sessionDtoToSession(sessionDto))
 	}
 
 	async saveAssessment(unitName: UnitEnum, userId: string, assessmentDto: AssessmentDto): Promise<void> {
-		const useCase = new SaveAssessmentUseCase(this.unitRepository)
+		const useCase = new SaveAssessmentUseCase(this.unitRepository, this.userRepository)
 		await useCase.execute(unitName, userId, assessmentDtoToAssessment(assessmentDto))
 	}
 
 	async savePractice(unitName: UnitEnum, userId: string, practiceDto: PracticeDto): Promise<void> {
-		const useCase = new SavePracticeUseCase(this.unitRepository)
+		const useCase = new SavePracticeUseCase(this.unitRepository, this.userRepository)
 		await useCase.execute(unitName, userId, practiceDtoToPractice(practiceDto))
 	}
 
