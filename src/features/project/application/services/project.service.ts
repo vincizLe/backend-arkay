@@ -10,13 +10,16 @@ export class ProjectService {
 	async save(projectDto: ProjectDto): Promise<void> {
 		const project = new Project({
 			id: projectDto.id ?? null,
+			name: projectDto.name,
 			url: projectDto.url,
 			isPublished: projectDto.isPublished,
 			isShared: projectDto.isShared,
 			ownerId: projectDto.ownerId,
 			guestId: projectDto.guestId,
 			favorite: projectDto.favorite,
-			userId: projectDto.userId
+			userId: projectDto.userId,
+			createdDate: projectDto.createdDate,
+			publishedDate: projectDto.publishedDate
 		})
 
 		await this.projectRepository.save(project)
@@ -26,8 +29,8 @@ export class ProjectService {
 		return await this.projectRepository.getById(projectId)
 	}
 
-	async list(userId: string): Promise<Array<Project>> {
-		return await this.projectRepository.list(userId)
+	async list(userId: string, favorite?: boolean): Promise<Array<Project>> {
+		return await this.projectRepository.list(userId, favorite)
 	}
 
 	async delete(projectId: string): Promise<void> {

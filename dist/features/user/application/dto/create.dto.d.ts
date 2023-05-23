@@ -7,6 +7,6 @@ export declare class CreateDto {
     generalScore?: number;
     coins?: number;
     hasReminder?: boolean;
-    reminderDate?: Date;
+    reminderDate?: string;
     purchasedItems: string[];
 }

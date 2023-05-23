@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
-import { IsArray, IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator'
+import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator'
 
 export class UserDto {
 	@IsNotEmpty()
@@ -49,9 +49,9 @@ export class UserDto {
 	hasReminder?: boolean = false
 
 	@IsOptional()
-	@IsDate()
+	@IsString()
 	@ApiPropertyOptional()
-	reminderDate?: Date = null
+	reminderDate?: string = null
 
 	@IsOptional()
 	@IsArray()

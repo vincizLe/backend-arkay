@@ -73,9 +73,9 @@ __decorate([
 ], CreateDto.prototype, "hasReminder", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsDate)(),
+    (0, class_validator_1.IsString)(),
     (0, swagger_1.ApiPropertyOptional)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], CreateDto.prototype, "reminderDate", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),

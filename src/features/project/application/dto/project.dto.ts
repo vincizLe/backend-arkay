@@ -10,6 +10,11 @@ export class ProjectDto {
 	@IsNotEmpty()
 	@IsString()
 	@ApiProperty()
+	name: string
+
+	@IsNotEmpty()
+	@IsString()
+	@ApiProperty()
 	url: string
 
 	@IsNotEmpty()
@@ -41,4 +46,14 @@ export class ProjectDto {
 	@IsString()
 	@ApiProperty()
 	userId: string
+
+	@IsNotEmpty()
+	@IsString()
+	@ApiProperty()
+	createdDate: string
+
+	@IsNotEmpty()
+	@IsString()
+	@ApiProperty()
+	publishedDate: string
 }

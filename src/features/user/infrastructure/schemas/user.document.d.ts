@@ -10,6 +10,6 @@ export interface UserDocument {
 	generalScore?: number
 	coins?: number
 	hasReminder: boolean
-	reminderDate?: Date
+	reminderDate?: string
 	purchasedItems: Array<ObjectId>
 }

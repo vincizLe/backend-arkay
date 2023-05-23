@@ -8,7 +8,7 @@ export class User {
 	generalScore?: number = 0
 	coins?: number = 0
 	hasReminder: boolean
-	reminderDate?: Date = null
+	reminderDate?: string = null
 	purchasedItems = new Array<string>()
 
 	constructor(entity: User) {

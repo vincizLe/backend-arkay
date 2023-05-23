@@ -4,6 +4,7 @@ import { Project } from '../../domain/entities/project.entity'
 import { ProjectRepository } from '../../domain/repositories/project.repository'
 import { projectDocumentToProject } from '../mappers/project-document-to-project.mapper'
 import { projectToProjectDocument } from '../mappers/project-to-project-document.mapper'
+import { listProjectFilterQuery } from '../query/list-project-filter.query'
 import { ProjectDocument } from '../schemas/project.schema'
 
 @Injectable()
@@ -32,8 +33,10 @@ export class ProjectImplRepository implements ProjectRepository {
 			throw new NotFoundException(`No se ha encontrado el proyecto con el id: ${projectId} `)
 		}
 	}
-	async list(userId: string): Promise<Project[]> {
-		const projectDocumentCursor = this.collection.find({ userId })
+	async list(userId: string, favorite?: boolean): Promise<Project[]> {
+		const query = listProjectFilterQuery(userId, favorite)
+
+		const projectDocumentCursor = this.collection.find(query)
 
 		const projects = new Array<Project>()
 
