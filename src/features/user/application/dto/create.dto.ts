@@ -51,7 +51,7 @@ export class CreateDto {
 
 	@IsOptional()
 	@IsArray()
-	@ApiPropertyOptional({ type: PurchasedItemDto })
+	@ApiPropertyOptional({ type: PurchasedItemDto, isArray: true })
 	@Type(() => PurchasedItemDto)
 	@ValidateNested()
 	purchasedItems = Array<PurchasedItemDto>()
