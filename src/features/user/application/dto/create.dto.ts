@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
 import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator'
-import { PurchasedItemDto } from 'src/features/user/application/dto/purchased-item.dto'
+import { PurchasedItemDto } from './purchased-item.dto'
 
 export class CreateDto {
 	@IsNotEmpty()
