@@ -56,7 +56,7 @@ export class UserDto {
 
 	@IsOptional()
 	@IsArray()
-	@ApiPropertyOptional()
+	@ApiPropertyOptional({ type: PurchasedItemDto, isArray: true })
 	@Type(() => PurchasedItemDto)
 	@ValidateNested()
 	purchasedItems = Array<PurchasedItemDto>()

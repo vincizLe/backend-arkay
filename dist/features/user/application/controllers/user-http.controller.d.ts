@@ -13,5 +13,5 @@ export declare class UserHttpController {
     detail({ userId }: UserIdDto): Promise<UserDto>;
     getUserId({ email, password }: GetUserIdDto): Promise<string>;
     delete({ userId }: UserIdDto): Promise<void>;
-    listPurchasedItems({ userId, itemType }: ListPurchasedItemsDto): Promise<Array<PurchasedItemDto>>;
+    listPurchasedItems({ userId }: UserIdDto, { itemType }: ListPurchasedItemsDto): Promise<Array<PurchasedItemDto>>;
 }

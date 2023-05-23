@@ -81,7 +81,7 @@ __decorate([
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsArray)(),
-    (0, swagger_1.ApiPropertyOptional)(),
+    (0, swagger_1.ApiPropertyOptional)({ type: purchased_item_dto_1.PurchasedItemDto }),
     (0, class_transformer_1.Type)(() => purchased_item_dto_1.PurchasedItemDto),
     (0, class_validator_1.ValidateNested)(),
     __metadata("design:type", Object)

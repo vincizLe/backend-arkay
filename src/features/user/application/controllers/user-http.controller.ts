@@ -43,9 +43,9 @@ export class UserHttpController {
 		await this.userService.delete(userId)
 	}
 
-	@Get('/list-purchased-items')
+	@Get('/:userId/list-purchased-items')
 	@ApiOperation({ summary: 'Obtener los items comprados por el usario' })
-	async listPurchasedItems(@Query() { userId, itemType }: ListPurchasedItemsDto): Promise<Array<PurchasedItemDto>> {
+	async listPurchasedItems(@Param() { userId }: UserIdDto, @Query() { itemType }: ListPurchasedItemsDto): Promise<Array<PurchasedItemDto>> {
 		return await this.userService.listPurchasedItem(userId, itemType)
 	}
 }

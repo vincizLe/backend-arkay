@@ -40,7 +40,7 @@ let UserHttpController = class UserHttpController {
     async delete({ userId }) {
         await this.userService.delete(userId);
     }
-    async listPurchasedItems({ userId, itemType }) {
+    async listPurchasedItems({ userId }, { itemType }) {
         return await this.userService.listPurchasedItem(userId, itemType);
     }
 };
@@ -85,11 +85,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "delete", null);
 __decorate([
-    (0, common_1.Get)('/list-purchased-items'),
+    (0, common_1.Get)('/:userId/list-purchased-items'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener los items comprados por el usario' }),
-    __param(0, (0, common_1.Query)()),
+    __param(0, (0, common_1.Param)()),
+    __param(1, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [list_purchased_items_dto_1.ListPurchasedItemsDto]),
+    __metadata("design:paramtypes", [user_id_dto_1.UserIdDto, list_purchased_items_dto_1.ListPurchasedItemsDto]),
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "listPurchasedItems", null);
 UserHttpController = __decorate([

@@ -1,4 +1,4 @@
-import { PurchasedItemDto } from './purchased-item.dto';
+import { PurchasedItemDto } from 'src/features/user/application/dto/purchased-item.dto';
 export declare class CreateDto {
     email: string;
     password: string;
