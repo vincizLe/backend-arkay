@@ -1,4 +1,5 @@
 import { ObjectId } from 'mongodb'
+import { UserPurchasedItemDocument } from './user-purchased-item.document'
 
 export interface UserDocument {
 	_id: ObjectId
@@ -11,5 +12,5 @@ export interface UserDocument {
 	coins?: number
 	hasReminder: boolean
 	reminderDate?: string
-	purchasedItems: Array<ObjectId>
+	purchasedItems: Array<UserPurchasedItemDocument>
 }

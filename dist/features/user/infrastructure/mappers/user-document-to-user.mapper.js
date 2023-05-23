@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userDocumentToUser = void 0;
+const user_purchased_item_entity_1 = require("../../domain/entities/user-purchased-item.entity");
 const user_entity_1 = require("../../domain/entities/user.entity");
 function userDocumentToUser(userDocument) {
     var _a, _b, _c, _d;
@@ -15,7 +16,11 @@ function userDocumentToUser(userDocument) {
         coins: (_c = userDocument === null || userDocument === void 0 ? void 0 : userDocument.coins) !== null && _c !== void 0 ? _c : null,
         hasReminder: userDocument.hasReminder,
         reminderDate: (_d = userDocument === null || userDocument === void 0 ? void 0 : userDocument.reminderDate) !== null && _d !== void 0 ? _d : null,
-        purchasedItems: userDocument.purchasedItems.map(item => item.toHexString())
+        purchasedItems: userDocument.purchasedItems.map(item => new user_purchased_item_entity_1.UserPurchasedItem({
+            id: item._id.toHexString(),
+            name: item.name,
+            type: item.type
+        }))
     });
 }
 exports.userDocumentToUser = userDocumentToUser;

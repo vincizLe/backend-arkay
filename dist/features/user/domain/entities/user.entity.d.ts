@@ -1,3 +1,4 @@
+import { UserPurchasedItem } from './user-purchased-item.entity';
 export declare class User {
     id?: string;
     email: string;
@@ -9,6 +10,6 @@ export declare class User {
     coins?: number;
     hasReminder: boolean;
     reminderDate?: string;
-    purchasedItems: string[];
+    purchasedItems: UserPurchasedItem[];
     constructor(entity: User);
 }

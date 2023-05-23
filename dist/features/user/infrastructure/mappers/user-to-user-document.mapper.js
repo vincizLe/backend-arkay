@@ -15,7 +15,13 @@ function userToUserDocument(user) {
         coins: (_c = user === null || user === void 0 ? void 0 : user.coins) !== null && _c !== void 0 ? _c : null,
         hasReminder: user.hasReminder,
         reminderDate: (_d = user === null || user === void 0 ? void 0 : user.reminderDate) !== null && _d !== void 0 ? _d : null,
-        purchasedItems: (_f = (_e = user.purchasedItems) === null || _e === void 0 ? void 0 : _e.map(item => new mongodb_1.ObjectId(item))) !== null && _f !== void 0 ? _f : []
+        purchasedItems: (_f = (_e = user.purchasedItems) === null || _e === void 0 ? void 0 : _e.map(item => {
+            return {
+                _id: new mongodb_1.ObjectId(item.id),
+                name: item.name,
+                type: item.type
+            };
+        })) !== null && _f !== void 0 ? _f : []
     };
 }
 exports.userToUserDocument = userToUserDocument;

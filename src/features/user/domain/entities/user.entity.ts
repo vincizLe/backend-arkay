@@ -1,3 +1,5 @@
+import { UserPurchasedItem } from './user-purchased-item.entity'
+
 export class User {
 	id?: string
 	email: string
@@ -9,7 +11,7 @@ export class User {
 	coins?: number = 0
 	hasReminder: boolean
 	reminderDate?: string = null
-	purchasedItems = new Array<string>()
+	purchasedItems = new Array<UserPurchasedItem>()
 
 	constructor(entity: User) {
 		Object.assign(this, entity)

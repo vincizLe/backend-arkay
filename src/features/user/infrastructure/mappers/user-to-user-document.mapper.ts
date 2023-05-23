@@ -14,6 +14,13 @@ export function userToUserDocument(user: User): UserDocument {
 		coins: user?.coins ?? null,
 		hasReminder: user.hasReminder,
 		reminderDate: user?.reminderDate ?? null,
-		purchasedItems: user.purchasedItems?.map(item => new ObjectId(item)) ?? []
+		purchasedItems:
+			user.purchasedItems?.map(item => {
+				return {
+					_id: new ObjectId(item.id),
+					name: item.name,
+					type: item.type
+				}
+			}) ?? []
 	}
 }

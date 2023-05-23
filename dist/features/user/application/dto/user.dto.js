@@ -13,6 +13,7 @@ exports.UserDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
+const purchased_item_dto_1 = require("./purchased-item.dto");
 class UserDto {
     constructor(entity) {
         this.imageUrl = null;
@@ -88,7 +89,7 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsArray)(),
     (0, swagger_1.ApiPropertyOptional)(),
-    (0, class_transformer_1.Type)(() => String),
+    (0, class_transformer_1.Type)(() => purchased_item_dto_1.PurchasedItemDto),
     (0, class_validator_1.ValidateNested)(),
     __metadata("design:type", Object)
 ], UserDto.prototype, "purchasedItems", void 0);

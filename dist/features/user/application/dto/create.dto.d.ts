@@ -1,3 +1,4 @@
+import { PurchasedItemDto } from './purchased-item.dto';
 export declare class CreateDto {
     email: string;
     password: string;
@@ -8,5 +9,5 @@ export declare class CreateDto {
     coins?: number;
     hasReminder?: boolean;
     reminderDate?: string;
-    purchasedItems: string[];
+    purchasedItems: PurchasedItemDto[];
 }

@@ -1,3 +1,4 @@
+import { UserPurchasedItem } from '../../domain/entities/user-purchased-item.entity'
 import { User } from '../../domain/entities/user.entity'
 import { UserDocument } from '../schemas/user.document'
 
@@ -13,6 +14,13 @@ export function userDocumentToUser(userDocument: UserDocument): User {
 		coins: userDocument?.coins ?? null,
 		hasReminder: userDocument.hasReminder,
 		reminderDate: userDocument?.reminderDate ?? null,
-		purchasedItems: userDocument.purchasedItems.map(item => item.toHexString())
+		purchasedItems: userDocument.purchasedItems.map(
+			item =>
+				new UserPurchasedItem({
+					id: item._id.toHexString(),
+					name: item.name,
+					type: item.type
+				})
+		)
 	})
 }

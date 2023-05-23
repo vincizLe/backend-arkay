@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const create_dto_1 = require("../dto/create.dto");
 const get_user_id_dto_1 = require("../dto/get-user-id.dto");
+const list_purchased_items_dto_1 = require("../dto/list-purchased-items.dto");
 const user_id_dto_1 = require("../dto/user-id.dto");
 const user_dto_1 = require("../dto/user.dto");
 const user_service_1 = require("../services/user.service");
@@ -38,6 +39,9 @@ let UserHttpController = class UserHttpController {
     }
     async delete({ userId }) {
         await this.userService.delete(userId);
+    }
+    async listPurchasedItems({ userId, itemType }) {
+        return await this.userService.listPurchasedItem(userId, itemType);
     }
 };
 __decorate([
@@ -80,6 +84,14 @@ __decorate([
     __metadata("design:paramtypes", [user_id_dto_1.UserIdDto]),
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "delete", null);
+__decorate([
+    (0, common_1.Get)('/list-purchased-items'),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener los items comprados por el usario' }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [list_purchased_items_dto_1.ListPurchasedItemsDto]),
+    __metadata("design:returntype", Promise)
+], UserHttpController.prototype, "listPurchasedItems", null);
 UserHttpController = __decorate([
     (0, swagger_1.ApiTags)('User'),
     (0, common_1.Controller)({ path: 'user' }),

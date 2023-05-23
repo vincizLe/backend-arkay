@@ -1,3 +1,4 @@
+import { PurchasedItemDto } from './purchased-item.dto';
 export declare class UserDto {
     id: string;
     email: string;
@@ -9,6 +10,6 @@ export declare class UserDto {
     coins?: number;
     hasReminder?: boolean;
     reminderDate?: string;
-    purchasedItems: string[];
+    purchasedItems: PurchasedItemDto[];
     constructor(entity: UserDto);
 }

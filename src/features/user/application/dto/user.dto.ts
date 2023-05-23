@@ -1,6 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import { Type } from 'class-transformer'
 import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator'
+import { PurchasedItemDto } from './purchased-item.dto'
 
 export class UserDto {
 	@IsNotEmpty()
@@ -56,9 +57,9 @@ export class UserDto {
 	@IsOptional()
 	@IsArray()
 	@ApiPropertyOptional()
-	@Type(() => String)
+	@Type(() => PurchasedItemDto)
 	@ValidateNested()
-	purchasedItems = Array<string>()
+	purchasedItems = Array<PurchasedItemDto>()
 
 	constructor(entity: UserDto) {
 		Object.assign(this, entity)
