@@ -1,10 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger'
-import { IsBoolean, IsOptional } from 'class-validator'
-import { UserIdDto } from 'src/features/user/application/dto/user-id.dto'
+import { ApiPropertyOptional } from '@nestjs/swagger'
+import { IsBoolean, IsOptional, IsString } from 'class-validator'
 
-export class ListProjectDto extends UserIdDto {
+export class ListProjectDto {
+	@IsOptional()
+	@IsString()
+	@ApiPropertyOptional()
+	userId: string = null
+
 	@IsOptional()
 	@IsBoolean()
-	@ApiProperty()
+	@ApiPropertyOptional()
 	favorite?: boolean = null
+
+	@IsOptional()
+	@IsBoolean()
+	@ApiPropertyOptional()
+	isShared?: boolean = null
 }

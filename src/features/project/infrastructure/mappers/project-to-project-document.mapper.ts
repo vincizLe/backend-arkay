@@ -9,7 +9,6 @@ export function projectToProjectDocument(project: Project): ProjectDocument {
 		url: project.url,
 		isPublished: project.isPublished,
 		isShared: project.isShared,
-		ownerId: project.ownerId,
 		guestId: project.guestId,
 		favorite: project.favorite,
 		userId: project.userId,

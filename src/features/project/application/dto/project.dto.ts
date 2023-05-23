@@ -30,11 +30,6 @@ export class ProjectDto {
 	@IsNotEmpty()
 	@IsString()
 	@ApiProperty()
-	ownerId: string
-
-	@IsNotEmpty()
-	@IsString()
-	@ApiProperty()
 	guestId: string
 
 	@IsNotEmpty()

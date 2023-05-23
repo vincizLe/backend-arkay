@@ -4,7 +4,6 @@ export class Project {
 	url: string
 	isPublished: boolean
 	isShared: boolean
-	ownerId: string
 	guestId: string
 	favorite: boolean
 	userId: string

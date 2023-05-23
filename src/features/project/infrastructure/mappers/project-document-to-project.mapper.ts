@@ -8,7 +8,6 @@ export function projectDocumentToProject(projectDocument: ProjectDocument): Proj
 		url: projectDocument.url,
 		isPublished: projectDocument.isPublished,
 		isShared: projectDocument.isShared,
-		ownerId: projectDocument.ownerId,
 		guestId: projectDocument.guestId,
 		favorite: projectDocument.favorite,
 		userId: projectDocument.userId,

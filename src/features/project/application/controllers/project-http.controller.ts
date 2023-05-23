@@ -26,8 +26,8 @@ export class ProjectHttpController {
 	@Get('')
 	@ApiOperation({ summary: 'Listar proyectos' })
 	@ApiOkResponse({ type: Array<ProjectDto>, description: 'Proyecto' })
-	async listProject(@Query() { userId, favorite }: ListProjectDto): Promise<Array<ProjectDto>> {
-		return await this.projectService.list(userId, favorite)
+	async listProject(@Query() listProject: ListProjectDto): Promise<Array<ProjectDto>> {
+		return await this.projectService.list(listProject)
 	}
 
 	@Delete('/:projectId')
