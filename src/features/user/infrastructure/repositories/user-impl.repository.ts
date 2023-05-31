@@ -43,6 +43,18 @@ export class UserImplRepository implements UserRepository {
 		}
 	}
 
+	async list(): Promise<User[]> {
+		const userDocumentCursor = this.collection.find()
+
+		const users = new Array<User>()
+
+		for await (const userDocument of userDocumentCursor) {
+			users.push(userDocumentToUser(userDocument))
+		}
+
+		return users
+	}
+
 	async deleteById(userId: string): Promise<void> {
 		await this.collection.deleteOne({ _id: ObjectId.createFromHexString(userId) })
 	}

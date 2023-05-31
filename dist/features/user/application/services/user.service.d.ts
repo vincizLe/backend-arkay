@@ -7,6 +7,7 @@ export declare class UserService {
     constructor(userRepository: UserRepository);
     create(createDto: CreateDto): Promise<void>;
     update(userDto: UserDto): Promise<void>;
+    list(): Promise<Array<UserDto>>;
     detail(userId: string): Promise<UserDto>;
     getUserId(email: string, password: string): Promise<string>;
     delete(userId: string): Promise<void>;

@@ -34,6 +34,9 @@ let UserHttpController = class UserHttpController {
     async detail({ userId }) {
         return await this.userService.detail(userId);
     }
+    async list() {
+        return await this.userService.list();
+    }
     async getUserId({ email, password }) {
         return await this.userService.getUserId(email, password);
     }
@@ -68,6 +71,13 @@ __decorate([
     __metadata("design:paramtypes", [user_id_dto_1.UserIdDto]),
     __metadata("design:returntype", Promise)
 ], UserHttpController.prototype, "detail", null);
+__decorate([
+    (0, common_1.Get)(''),
+    (0, swagger_1.ApiOperation)({ summary: 'Obtener listado de usuarios' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UserHttpController.prototype, "list", null);
 __decorate([
     (0, common_1.Get)('/get-user-id'),
     (0, swagger_1.ApiOperation)({ summary: 'Obtener id del usuario por correo y constraseña' }),

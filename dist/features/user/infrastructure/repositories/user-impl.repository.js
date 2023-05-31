@@ -44,6 +44,14 @@ let UserImplRepository = class UserImplRepository {
             throw new common_1.NotFoundException(`No se ha encontrado el usuario con los valores ingresados `);
         }
     }
+    async list() {
+        const userDocumentCursor = this.collection.find();
+        const users = new Array();
+        for await (const userDocument of userDocumentCursor) {
+            users.push((0, user_document_to_user_mapper_1.userDocumentToUser)(userDocument));
+        }
+        return users;
+    }
     async deleteById(userId) {
         await this.collection.deleteOne({ _id: mongodb_1.ObjectId.createFromHexString(userId) });
     }

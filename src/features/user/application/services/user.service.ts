@@ -4,6 +4,7 @@ import { UserRepository } from '../../domain/repositories/user.repository'
 import { GetDetailUseCase } from '../../domain/use-cases/get-detail.use-case'
 import { GetUserIdUseCase } from '../../domain/use-cases/get-user-id.use-case'
 import { ListPurchasedItemsUseCase } from '../../domain/use-cases/list-purchased-items.use-case'
+import { ListUserUseCase } from '../../domain/use-cases/list-user.use-case'
 import { SaveUseCase } from '../../domain/use-cases/save.use-case'
 import { CreateDto } from '../dto/create.dto'
 import { PurchasedItemDto } from '../dto/purchased-item.dto'
@@ -51,6 +52,16 @@ export class UserService {
 				purchasedItems: userDto.purchasedItems
 			})
 		)
+	}
+
+	async list(): Promise<Array<UserDto>> {
+		const useCase = new ListUserUseCase(this.userRepository)
+
+		const users = await useCase.execute()
+
+		return users.map(user => {
+			return userToUserDto(user)
+		})
 	}
 
 	async detail(userId: string): Promise<UserDto> {

@@ -16,6 +16,7 @@ const user_repository_1 = require("../../domain/repositories/user.repository");
 const get_detail_use_case_1 = require("../../domain/use-cases/get-detail.use-case");
 const get_user_id_use_case_1 = require("../../domain/use-cases/get-user-id.use-case");
 const list_purchased_items_use_case_1 = require("../../domain/use-cases/list-purchased-items.use-case");
+const list_user_use_case_1 = require("../../domain/use-cases/list-user.use-case");
 const save_use_case_1 = require("../../domain/use-cases/save.use-case");
 const user_to_user_dto_mapper_1 = require("../mappers/user-to-user-dto.mapper");
 let UserService = class UserService {
@@ -52,6 +53,13 @@ let UserService = class UserService {
             reminderDate: userDto.reminderDate,
             purchasedItems: userDto.purchasedItems
         }));
+    }
+    async list() {
+        const useCase = new list_user_use_case_1.ListUserUseCase(this.userRepository);
+        const users = await useCase.execute();
+        return users.map(user => {
+            return (0, user_to_user_dto_mapper_1.userToUserDto)(user);
+        });
     }
     async detail(userId) {
         const useCase = new get_detail_use_case_1.GetDetailUseCase(this.userRepository);

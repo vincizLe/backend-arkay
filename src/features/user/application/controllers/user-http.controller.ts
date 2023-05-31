@@ -31,6 +31,12 @@ export class UserHttpController {
 		return await this.userService.detail(userId)
 	}
 
+	@Get('')
+	@ApiOperation({ summary: 'Obtener listado de usuarios' })
+	async list(): Promise<Array<UserDto>> {
+		return await this.userService.list()
+	}
+
 	@Get('/get-user-id')
 	@ApiOperation({ summary: 'Obtener id del usuario por correo y constraseña' })
 	async getUserId(@Query() { email, password }: GetUserIdDto): Promise<string> {
