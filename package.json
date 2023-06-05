@@ -1,6 +1,6 @@
 {
 	"name": "arkay",
-	"version": "0.0.8",
+	"version": "0.0.9-build-1",
 	"description": "",
 	"main": "index.js",
 	"scripts": {

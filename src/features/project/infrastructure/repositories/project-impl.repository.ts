@@ -33,8 +33,9 @@ export class ProjectImplRepository implements ProjectRepository {
 			throw new NotFoundException(`No se ha encontrado el proyecto con el id: ${projectId} `)
 		}
 	}
-	async list(userId: string, favorite?: boolean): Promise<Project[]> {
-		const query = listProjectFilterQuery(userId, favorite)
+	async list(userId: string, favorite?: boolean, isShared?: boolean): Promise<Project[]> {
+		const query = listProjectFilterQuery(userId, favorite, isShared)
+		console.log('query -> ', query)
 
 		const projectDocumentCursor = this.collection.find(query)
 
