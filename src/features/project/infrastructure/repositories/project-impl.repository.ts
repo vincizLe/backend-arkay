@@ -35,7 +35,6 @@ export class ProjectImplRepository implements ProjectRepository {
 	}
 	async list(userId: string, favorite?: boolean, isShared?: boolean): Promise<Project[]> {
 		const query = listProjectFilterQuery(userId, favorite, isShared)
-		console.log('query -> ', query)
 
 		const projectDocumentCursor = this.collection.find(query)
 

@@ -9,12 +9,20 @@ export function listProjectFilterQuery(userId?: string, favorite?: boolean, isSh
 		query.userId = userId
 	}
 
-	if (userId !== null && userId !== undefined) {
-		query.favorite = favorite
+	if (favorite !== null && favorite !== undefined) {
+		if (String(favorite) === 'true') {
+			query.favorite = true
+		} else {
+			query.favorite = false
+		}
 	}
 
-	if (userId !== null && userId !== undefined) {
-		query.isShared = isShared
+	if (isShared !== null && isShared !== undefined) {
+		if (String(isShared) === 'true') {
+			query.isShared = true
+		} else {
+			query.isShared = false
+		}
 	}
 
 	return query
