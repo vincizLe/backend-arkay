@@ -11,6 +11,7 @@ export function userToUserDto(user: User): UserDto {
 		imageUrl: user?.imageUrl ?? null,
 		generalScore: user?.generalScore ?? null,
 		coins: user?.coins ?? null,
+		goal: user?.goal ?? null,
 		hasReminder: user.hasReminder,
 		reminderDate: user?.reminderDate ?? null,
 		purchasedItems: user.purchasedItems
