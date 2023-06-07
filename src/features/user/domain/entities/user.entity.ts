@@ -9,6 +9,7 @@ export class User {
 	imageUrl?: string = null
 	generalScore?: number = 0
 	coins?: number = 0
+	goal?: string = null
 	hasReminder: boolean
 	reminderDate?: string = null
 	purchasedItems = new Array<UserPurchasedItem>()

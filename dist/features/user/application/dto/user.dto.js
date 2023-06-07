@@ -19,6 +19,7 @@ class UserDto {
         this.imageUrl = null;
         this.generalScore = 0;
         this.coins = 0;
+        this.goal = null;
         this.hasReminder = false;
         this.reminderDate = null;
         this.purchasedItems = Array();
@@ -73,6 +74,12 @@ __decorate([
     (0, swagger_1.ApiPropertyOptional)(),
     __metadata("design:type", Number)
 ], UserDto.prototype, "coins", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiPropertyOptional)(),
+    __metadata("design:type", String)
+], UserDto.prototype, "goal", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsBoolean)(),

@@ -40,6 +40,11 @@ export class CreateDto {
 	coins?: number = 0
 
 	@IsOptional()
+	@IsString()
+	@ApiPropertyOptional()
+	goal?: string = null
+
+	@IsOptional()
 	@IsBoolean()
 	@ApiPropertyOptional()
 	hasReminder?: boolean = false

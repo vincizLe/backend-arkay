@@ -6,6 +6,7 @@ class User {
         this.imageUrl = null;
         this.generalScore = 0;
         this.coins = 0;
+        this.goal = null;
         this.reminderDate = null;
         this.purchasedItems = new Array();
         Object.assign(this, entity);

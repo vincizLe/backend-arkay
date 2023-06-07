@@ -7,6 +7,7 @@ export declare class CreateDto {
     imageUrl?: string;
     generalScore?: number;
     coins?: number;
+    goal?: string;
     hasReminder?: boolean;
     reminderDate?: string;
     purchasedItems: PurchasedItemDto[];

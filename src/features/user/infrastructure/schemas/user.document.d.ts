@@ -10,6 +10,7 @@ export interface UserDocument {
 	imageUrl?: string
 	generalScore?: number
 	coins?: number
+	goal?: string
 	hasReminder: boolean
 	reminderDate?: string
 	purchasedItems: Array<UserPurchasedItemDocument>

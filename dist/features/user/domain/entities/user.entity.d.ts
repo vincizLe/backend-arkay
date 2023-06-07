@@ -8,6 +8,7 @@ export declare class User {
     imageUrl?: string;
     generalScore?: number;
     coins?: number;
+    goal?: string;
     hasReminder: boolean;
     reminderDate?: string;
     purchasedItems: UserPurchasedItem[];

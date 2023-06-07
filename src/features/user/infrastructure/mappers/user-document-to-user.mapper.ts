@@ -12,6 +12,7 @@ export function userDocumentToUser(userDocument: UserDocument): User {
 		imageUrl: userDocument?.imageUrl ?? null,
 		generalScore: userDocument?.generalScore ?? null,
 		coins: userDocument?.coins ?? null,
+		goal: userDocument?.goal ?? null,
 		hasReminder: userDocument.hasReminder,
 		reminderDate: userDocument?.reminderDate ?? null,
 		purchasedItems: userDocument.purchasedItems.map(

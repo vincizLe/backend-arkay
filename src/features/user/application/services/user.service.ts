@@ -27,6 +27,7 @@ export class UserService {
 				imageUrl: createDto.imageUrl,
 				generalScore: createDto.generalScore,
 				coins: createDto.coins,
+				goal: createDto.goal,
 				hasReminder: createDto.hasReminder,
 				reminderDate: createDto.reminderDate,
 				purchasedItems: createDto.purchasedItems
@@ -47,6 +48,7 @@ export class UserService {
 				imageUrl: userDto.imageUrl,
 				generalScore: userDto.generalScore,
 				coins: userDto.coins,
+				goal: userDto.goal,
 				hasReminder: userDto.hasReminder,
 				reminderDate: userDto.reminderDate,
 				purchasedItems: userDto.purchasedItems
